@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirth Madane | Data Scientist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="card-section.css">
+    <style>
+        /* Base styles with transition for smooth dark mode swap */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light Mode (Default) */
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Dark Mode Overrides */
+        .dark body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .dark .hero-pattern {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+        }
+
+        /* Other Styles */
+        .blue-gradient-text {
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Global Card Hover Effect */
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px -5px rgba(59, 130, 246, 0.3), 0 4px 15px -3px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .progress-bar {
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* This hides the section before you scroll to it */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* This shows the section when JS adds the 'active' class */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Initial state for skill bars */
+        .progress-bar-fill {
+            width: 0% !important;
+            /* Force start at zero */
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+        }
+
+        /* Milestone Button Animation */
+        @keyframes milestonePopUp {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes milestonePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+            }
+        }
+
+        .milestone-btn {
+            animation: milestonePopUp 1.4s ease-out 0.8s backwards,
+                milestonePulse 2s ease-in-out 2.5s infinite;
+        }
+
+        /* Milestone Info Expand Animation */
+        .milestone-info {
+            transition: all 0.3s ease-out;
+        }
+
+        .milestone-info.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-800">
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold flex items-center gap-2">
+                <span class="bg-blue-900 text-white px-2 py-1 rounded">TM</span>
+                <span class="hidden sm:inline dark:text-white">Tirth Madane</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#home" class="hover:text-blue-600">Home</a>
+                <a href="#about" class="hover:text-blue-600">About</a>
+                <a href="#skills" class="hover:text-blue-600">Skills</a>
+                <a href="#experience" class="hover:text-blue-600">Experience</a>
+                <a href="#projects" class="hover:text-blue-600">Projects</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle"
+                    class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400">
+                    <i id="theme-toggle-icon" class="fas fa-moon"></i>
+                </button>
+                <a href="#contact"
+                    class="bg-blue-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-800 transition">Let's
+                    Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-32 pb-20 hero-pattern min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-blue-500 font-semibold mb-2">Hello, I'm</p>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 dark:text-white">Tirth <span
+                        class="text-blue-500">Madane</span></h1>
+                <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-6 font-medium">Aspiring Data
+                    Scientist | ML Enthusiast</h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-lg">
+                    Aspiring Data Scientist with hands-on experience in Python, SQL, and data visualization. Passionate
+                    about analyzing datasets, building ML models, and translating data into actionable insights for
+                    real-world problems.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact"
+                        class="bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:gap-4 transition-all">Contact
+                        Me <i class="fas fa-arrow-right text-sm"></i></a>
+                    <a href="resume.pdf" download
+                        class="border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition">Download
+                        Resume <i class="fas fa-download text-sm"></i></a>
+                </div>
+                <div class="flex gap-6 mt-10 text-slate-900 dark:text-slate-200">
+                    <a href="https://github.com/Tirth18097" target="_blank"
+                        class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i
+                            class="fab fa-github fa-xl"></i></a>
+                    <a href="https://linkedin.com/in/tirth-madane-a9935528b" target="_blank"
+                        class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i
+                            class="fab fa-linkedin fa-xl"></i></a>
+                    <a href="mailto:madanetirth@gmail.com"
+                        class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i
+                            class="fas fa-envelope fa-xl"></i></a>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 flex justify-center relative">
+                <div
+                    class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-white dark:border-slate-800 shadow-2xl overflow-hidden z-10">
+                    <img src="portfolio.png" alt="Tirth Madane" class="w-full h-full object-cover">
+                </div>
+                <div
+                    class="absolute bottom-4 right-4 md:right-10 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl z-20 border border-slate-100 dark:border-slate-700">
+                    <p class="text-blue-600 font-bold text-2xl">9.681</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">Best SGPA
+                    </p>
+                </div>
+                <div class="absolute -top-4 -right-4 w-32 h-32 bg-blue-900 rounded-full opacity-10"></div>
+                <div class="absolute bottom-0 -left-10 w-24 h-24 border-4 border-blue-500 rounded-full opacity-20">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-20 bg-white dark:bg-slate-900 transition-colors reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">About Me</p>
+                    <h2 class="text-4xl font-bold mb-6 dark:text-white">Passionate About <br><span
+                            class="text-blue-500">Data-Driven Solutions</span></h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                        I'm a B.Tech Computer Engineering student at Shah And Anchor Kutchhi Engineering College,
+                        Mumbai, with a deep passion for uncovering insights from data. My journey began with curiosity
+                        about how data shapes decisions in the modern world.
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        With hands-on experience in Python, SQL, and ML fundamentals, I strive to build impactful
+                        solutions that transform raw data into actionable intelligence.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-slate-50 dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-12 h-12 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg leading-none dark:text-white">Educational Background</h3>
+                            <p class="text-slate-400 text-sm">Academic Journey</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-blue-900 dark:text-blue-400">B.Tech in Computer Engineering</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Shah And Anchor Kutchhi Engineering
+                            College, Mumbai</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold text-slate-400 uppercase">Academic Performance (SGPA)</p>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-bold dark:text-slate-200"><span>Sem
+                                    1</span><span>8.18</span></div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                                <div class="bg-blue-400 h-2 rounded-full" style="width: 81.8%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-bold dark:text-slate-200"><span>Sem
+                                    2</span><span>8.26</span></div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                                <div class="bg-blue-400 h-2 rounded-full" style="width: 82.6%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-bold dark:text-slate-200"><span>Sem
+                                    3</span><span>9.14</span></div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 91.4%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-bold dark:text-slate-200"><span>Sem
+                                    4</span><span>9.0</span></div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-sm font-bold dark:text-slate-200"><span>Sem
+                                    5</span><span>9.681</span></div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 96.81%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-800/50 reveal">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+
+            <h2 class="text-4xl font-bold mb-4 dark:text-white">My <span class="text-blue-500">Skills</span>
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-12">A versatile skill set combining technical proficiency
+                with strong analytical capabilities</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <!-- First Column: Python & Leadership Stacked -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                        onclick="openPythonSkillsModal()">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-blue-50 dark:bg-blue-900/50 rounded-lg flex items-center justify-center p-2">
+                                <img src="python-logo.png" alt="Python" class="w-full h-full object-contain">
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Programming</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Python</h3>
+                        <button
+                            class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                            onclick="event.stopPropagation(); openPythonSkillsModal();">
+                            <i class="fas fa-list text-xs"></i>
+                            See competencies
+                        </button>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-purple-50 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users-cog fa-xl"></i>
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Leadership</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Leadership & Team Management</h3>
+                    </div>
+                </div>
+
+                <!-- Second Column: SQL -->
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                    onclick="openSQLSkillsModal()">
+                    <div class="flex justify-between items-start mb-6">
+                        <div
+                            class="w-12 h-12 bg-cyan-50 dark:bg-cyan-900/50 rounded-lg flex items-center justify-center p-2">
+                            <img src="sql-logo.png" alt="SQL" class="w-full h-full object-contain">
+                        </div>
+                        <span
+                            class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Database</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-left dark:text-white">SQL</h3>
+                    <button
+                        class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                        onclick="event.stopPropagation(); openSQLSkillsModal();">
+                        <i class="fas fa-list text-xs"></i>
+                        See competencies
+                    </button>
+                </div>
+
+                <!-- Third Column: Power BI & Tableau Stacked -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                        onclick="openPowerBISkillsModal()">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center p-2">
+                                <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Visualization</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Power BI</h3>
+                        <button
+                            class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                            onclick="event.stopPropagation(); openPowerBISkillsModal();">
+                            <i class="fas fa-list text-xs"></i>
+                            See competencies
+                        </button>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                        onclick="openTableauSkillsModal()">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-orange-50 dark:bg-orange-900/30 rounded-lg flex items-center justify-center p-2">
+                                <img src="tableau-logo.png" alt="Tableau" class="w-full h-full object-contain">
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Visualization</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Tableau</h3>
+                        <button
+                            class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                            onclick="event.stopPropagation(); openTableauSkillsModal();">
+                            <i class="fas fa-list text-xs"></i>
+                            See competencies
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="leadership" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Leadership</p>
+                <h2 class="text-4xl font-bold dark:text-white">Positions of <span
+                        class="text-blue-500">Responsibility</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-4">Building leadership skills through active
+                    participation in college organizations</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6"
+                        style="background-image: url('robo-club-logo.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-1 dark:text-white">Member - Robo Club</h3>
+                    <p class="text-blue-500 text-sm mb-4">SAKEC Technical Club</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Managed and coordinated
+                        technical events, workshops, setup, and participant engagement. Contributed to fostering a
+                        culture of innovation.</p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-2xl flex items-center justify-center mb-6"
+                        style="background-image: url('nss-logo.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-1 dark:text-white">Volunteer - NSS</h3>
+                    <p class="text-blue-500 text-sm mb-4">National Service Scheme</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Participated in social welfare
+                        initiatives, awareness drives, and community development programs. Dedicated to making a
+                        positive impact.</p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm card-hover">
+                    <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl flex items-center justify-center mb-6"
+                        style="background-image: url('iei-logo.png'); background-size: cover; background-position: center;">
+                    </div>
+                    <h3 class="font-bold text-xl mb-1 dark:text-white">Co-Head of PR & Marketing</h3>
+                    <p class="text-blue-500 text-sm mb-4">Institution of Engineers India (IEI)</p>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Led event promotions and
+                        strengthened student participation through strategic outreach and managed communications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="achievements" class="py-20 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Recognition</p>
+                <h2 class="text-4xl font-bold dark:text-white">Notable <span class="text-blue-500">Achievements</span>
+                </h2>
+            </div>
+
+            <div
+                class="group relative bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm card-hover">
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div class="w-16 h-16 bg-blue-900 text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-900/20"
+                        style="background-image: url('solar-decathlon-logo.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: white;">
+                    </div>
+                    <div class="flex-grow">
+                        <span
+                            class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-[10px] font-bold uppercase tracking-wider rounded-full mb-3">National
+                            Competition</span>
+                        <h3 class="text-2xl font-bold mb-4 dark:text-white">Finalist - Solar Decathlon India Competition
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">Selected for national-level
+                            competition with Team Aavishkar. Worked on sustainable cooling & retrofitting solutions with
+                            industry collaboration.</p>
+
+                        <!-- My Contributions -->
+                        <div class="mb-6">
+                            <h4 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3">My Contributions:</h4>
+                            <div class="grid md:grid-cols-2 gap-2">
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-building text-blue-500 text-xs mt-1"></i>
+                                    <span class="text-slate-600 dark:text-slate-300 text-sm">Co-developed sustainable
+                                        architectural designs and building models</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-lightbulb text-blue-500 text-xs mt-1"></i>
+                                    <span class="text-slate-600 dark:text-slate-300 text-sm">Simulation, analysis, and
+                                        design of energy-efficient systems</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-brain text-blue-500 text-xs mt-1"></i>
+                                    <span class="text-slate-600 dark:text-slate-300 text-sm">Brainstorming, design
+                                        sprints, and technical reviews</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-megaphone text-blue-500 text-xs mt-1"></i>
+                                    <span class="text-slate-600 dark:text-slate-300 text-sm">Presentations and public
+                                        engagement for sustainable innovation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Collaborations -->
+                        <div class="flex flex-wrap gap-3 text-xs mb-4">
+                            <span
+                                class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">Vighneshwar
+                                Airconditioning Pvt. Ltd.</span>
+                            <span
+                                class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">IIT
+                                Bombay Tata Lab</span>
+                        </div>
+
+                        <!-- View Details Button -->
+                        <button onclick="openSolarModal()"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
+                            <i class="fas fa-images"></i>
+                            View Gallery & Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section Wrapper -->
+    <section id="experience" class="py-20 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">MY JOURNEY</p>
+                <h2 class="text-4xl font-bold dark:text-white">Professional <span
+                        class="text-blue-500">Experience</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-4">A comprehensive overview of internships, training,
+                    certifications, and professional engagements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internship Section -->
+    <section id="internship" class="card-section-container reveal"></section>
+
+    <!-- Workshop/Training Programs Section -->
+    <section id="workshop" class="card-section-container reveal"></section>
+
+    <!-- Certification Courses Section -->
+    <section id="certification" class="card-section-container reveal"></section>
+
+    <!-- Professional Body Membership Section -->
+    <section id="membership" class="card-section-container reveal"></section>
+
+    <!-- Roles Section -->
+    <section id="roles" class="card-section-container reveal"></section>
+
+    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors reveal">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-12 text-blue-900 dark:text-white">My <span
+                    class="text-blue-500">Projects</span></h2>
+
+            <!-- Hotel Revenue Analysis Project Card -->
+            <div
+                class="bg-white dark:bg-slate-800 p-10 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm max-w-3xl mx-auto card-hover text-left">
+                <!-- Power BI Icon at corner -->
+                <div class="flex justify-end mb-4">
+                    <div
+                        class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center p-2">
+                        <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
+                    </div>
+                </div>
+
+                <!-- Section Title -->
+                <h3 class="text-3xl font-bold mb-2 dark:text-white">Hotel Revenue Analysis</h3>
+
+                <!-- Subtitle -->
+                <p class="text-slate-500 dark:text-slate-400 mb-6">Internship Projects in Data Visualization and
+                    Analytics</p>
+
+                <!-- Milestone Section with GitHub Icon -->
+                <div class="flex items-center gap-4 justify-between">
+                    <!-- Milestone 1 Button -->
+                    <button onclick="toggleMilestone1()" id="milestone1Btn"
+                        class="milestone-btn flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all">
+                        <span class="text-lg">ℹ️ 🎯</span>
+                        <span>Milestone 1</span>
+                    </button>
+
+                    <!-- GitHub Icon -->
+                    <a href="https://github.com/Tirth18097/Hotel_Business_Understand_Improve_Revenue.git"
+                        target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 bg-slate-800 dark:bg-slate-700 text-white rounded-lg flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition-all">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+
+                <!-- Expandable Milestone Information -->
+                <div id="milestone1Info"
+                    class="milestone-info hidden mt-6 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold text-lg mb-4 text-blue-600 dark:text-blue-400">Project Details:</h4>
+                    <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Analyzed hotel booking and revenue data using Power BI</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Designed a star schema data model with fact and dimension tables</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Cleaned and transformed raw data using Power Query</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Created calculated columns for booking duration, stay type, and room category</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Built interactive dashboards to analyze revenue, occupancy, and profitability</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span>Generated actionable insights to support business decision-making</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white dark:bg-slate-900 transition-colors reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-blue-500 font-bold text-sm uppercase mb-2">Get in touch</p>
+                <h2 class="text-4xl font-bold dark:text-white">Let's <span class="text-blue-500">Connect</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-center">
+                        <div
+                            class="w-14 h-14 bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 dark:text-slate-500 text-sm uppercase font-bold">Email</p>
+                            <p class="font-semibold text-lg dark:text-white">madanetirth@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-center">
+                        <div
+                            class="w-14 h-14 bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 dark:text-slate-500 text-sm uppercase font-bold">Phone</p>
+                            <p class="font-semibold text-lg dark:text-white">+91-9892092952</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-center">
+                        <div
+                            class="w-14 h-14 bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 dark:text-slate-500 text-sm uppercase font-bold">Location</p>
+                            <p class="font-semibold text-lg dark:text-white">Mumbai, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="https://formspree.io/f/xdannblq" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="Your Name" required
+                        class="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white placeholder:dark:text-slate-500 transition">
+
+                    <input type="email" name="email" placeholder="Your Email" required
+                        class="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white placeholder:dark:text-slate-500 transition">
+
+                    <textarea name="message" rows="4" placeholder="Your Message" required
+                        class="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white placeholder:dark:text-slate-500 transition"></textarea>
+
+                    <button type="submit"
+                        class="w-full bg-blue-900 text-white py-4 rounded-xl font-bold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="card-section.js"></script>
+    <script>
+        // ========== INTERNSHIP SECTION ==========
+        const internshipSection = new CardSection('internship', {
+            title: 'Internships',
+            highlightWords: ['Internships'],
+            cards: [
+                {
+                    logo: 'infosys-logo.png',
+                    iconColor: 'blue',
+                    title: 'Data Visualization Intern',
+                    organization: 'Infosys Springboard',
+                    description: 'Your description here. Replace with your actual internship details and achievements.',
+                    modal: "openImageModal('infosys-cert.png', 'Infosys Springboard Virtual Internship 6.0')"
+                },
+                {
+                    logo: 'tbi-logo.png',
+                    title: 'Intern',
+                    organization: 'SAKEC - Technology Business Incubator',
+                    description: 'Completed internship as part of Solar Decathlon India 2024-25 Competition with Team Aavishkar.',
+                    modal: 'openTBIModal()'
+                }
+            ]
+        });
+
+        // ========== WORKSHOP/TRAINING SECTION ==========
+        const workshopSection = new CardSection('workshop', {
+            title: 'Hackathon & Workshop Training Programs',
+            highlightWords: ['Hackathon', 'Training'],
+            subtitle: 'Continuous learning through workshops and training programs',
+            cards: [
+                {
+                    icon: 'fas fa-code',
+                    iconColor: 'red',
+                    title: 'Participated in 24-Hour Hackathon – SCOE, Navi Mumbai',
+                    organization: 'Saraswati College of Engineering & Technology | April 2024',
+                    description: 'First hackathon experience focusing on web development and Smart Parking Management System',
+                    modal: 'openHackathonModal()'
+                },
+                {
+                    logo: 'placify-logo.png',
+                    iconColor: 'white',
+                    title: 'Python',
+                    organization: 'Placify Technologies Pvt. Ltd.',
+                    description: 'Completed intensive training on Python programming',
+                    modal: 'openPythonModal()'
+                },
+                {
+                    logo: 'mitu-logo.png',
+                    title: 'SQL',
+                    organization: 'MITU Skillologies, Pune',
+                    description: 'Completed comprehensive training in SQL and database management at Shah & Anchor Kutchhi Engineering College in association with MITU Skillologies, Pune. As part of the QueryCraft: The Art of Database Engineering program, I developed a Python (Tkinter)–based application integrated with a database, gaining hands-on experience in real-world database connectivity and operations.',
+                    modal: 'openMituSQLModal()'
+                }
+            ]
+        });
+
+        // ========== CERTIFICATION SECTION ==========
+        const certificationSection = new CardSection('certification', {
+            title: 'Certifications',
+            highlightWords: ['Certifications'],
+            subtitle: 'Professional certifications demonstrating expertise and commitment',
+            cards: [
+                {
+                    icon: 'fas fa-certificate',
+                    iconColor: 'blue',
+                    title: 'AWS Certified Cloud Practitioner',
+                    organization: 'Amazon Web Services',
+                    description: 'Foundational understanding of AWS Cloud concepts and services.',
+                    previewImage: 'aws-cert.png'
+                },
+                {
+                    icon: 'fas fa-certificate',
+                    iconColor: 'blue',
+                    title: 'GenAI Powered Data Analytics',
+                    organization: ' Tata Group & Forage',
+                    description: 'AI-driven financial analytics simulation: conducted exploratory data analysis, designed predictive modeling for customer risk assessment, and developed ethical AI collections strategy.',
+                    previewImage: 'tata-genai-cert.png'
+                },
+                {
+                    icon: 'fas fa-certificate',
+                    iconColor: 'blue',
+                    title: 'Google AI-ML Virtual Internship (Jul to Sep 2025)',
+                    organization: 'Google',
+                    description: 'Professional certification in building ML models with TensorFlow.',
+                    previewImage: 'google-aiml-cert.png'
+                },
+                {
+                    icon: 'fas fa-certificate',
+                    iconColor: 'blue',
+                    title: 'Programming Essentials in C++ & Fundamentals of Object Oriented Programming',
+                    organization: 'Cisco Networking Academy',
+                    description: 'Professional certification demonstrating expertise in C++ programming and OOP concepts.',
+                    previewImage: 'cisco-cpp-cert.png'
+                },
+                {
+                    icon: 'fas fa-certificate',
+                    iconColor: 'blue',
+                    title: 'Programming Essentials in C',
+                    organization: 'Cisco Networking Academy',
+                    description: 'Professional certification demonstrating expertise in C programming fundamentals and language techniques.',
+                    previewImage: 'cisco-c-cert.png'
+                }
+            ]
+        });
+
+        // ========== PROFESSIONAL MEMBERSHIP SECTION ==========
+        const membershipSection = new CardSection('membership', {
+            label: 'Professional Body Membership',
+            highlightWords: ['Professional', 'Membership'],
+            cards: [
+                {
+                    icon: 'fas fa-users',
+                    iconColor: 'green',
+                    title: 'IEEE Member',
+                    organization: 'Institute of Electrical and Electronics Engineers',
+                    description: 'Active member contributing to technology advancement and innovation.'
+                },
+                {
+                    icon: 'fas fa-handshake',
+                    iconColor: 'purple',
+                    title: 'ACM Membership',
+                    organization: 'Association for Computing Machinery',
+                    description: 'Engaged in computing research and professional development activities.'
+                },
+                {
+                    icon: 'fas fa-network-wired',
+                    iconColor: 'blue',
+                    title: 'Data Science Society',
+                    organization: 'Professional Network',
+                    description: 'Participating in data science community events and knowledge sharing.'
+                }
+            ]
+        });
+
+        // ========== ROLES SECTION ==========
+        const rolesSection = new CardSection('roles', {
+            label: 'Leadership Roles',
+            highlightWords: ['Leadership'],
+            cards: [
+                {
+                    icon: 'fas fa-user-tie',
+                    iconColor: 'blue',
+                    title: 'Team Lead',
+                    organization: 'College Project',
+                    description: 'Led a team of 5 members in developing an innovative software solution.'
+                },
+                {
+                    icon: 'fas fa-trophy',
+                    iconColor: 'yellow',
+                    title: 'Event Coordinator',
+                    organization: 'Technical Fest',
+                    description: 'Organized and coordinated technical events with 500+ participants.'
+                },
+                {
+                    icon: 'fas fa-lightbulb',
+                    iconColor: 'red',
+                    title: 'Innovation Head',
+                    organization: 'Student Council',
+                    description: 'Spearheaded innovation initiatives and hackathon events for students.'
+                }
+            ]
+        });
+    </script>
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-toggle-icon');
+
+        btn.addEventListener('click', () => {
+            // This line toggles the dark mode for the entire website
+            document.documentElement.classList.toggle('dark');
+
+            // This changes the icon visually
+            if (document.documentElement.classList.contains('dark')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Toggle Milestone 1 Information
+        function toggleMilestone1() {
+            const info = document.getElementById('milestone1Info');
+            if (info.classList.contains('hidden')) {
+                info.classList.remove('hidden');
+                info.classList.add('show');
+            } else {
+                info.classList.add('hidden');
+                info.classList.remove('show');
+            }
+        }
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150; // Distance from bottom before showing
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+
+                    // Specifically trigger progress bars inside this revealed section
+                    var bars = reveals[i].querySelectorAll('.progress-bar-fill');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener("scroll", reveal, { passive: true });
+
+        // Run once on page load to show sections already in view
+        document.addEventListener("DOMContentLoaded", reveal);
+
+        // Solar Decathlon Modal Functions
+        function openSolarModal() {
+            document.getElementById('solarModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSolarModal() {
+            document.getElementById('solarModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('solarModal');
+            if (modal) {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === modal) {
+                        closeSolarModal();
+                    }
+                });
+            }
+
+            const pythonModal = document.getElementById('pythonModal');
+            if (pythonModal) {
+                pythonModal.addEventListener('click', function (e) {
+                    if (e.target === pythonModal) {
+                        closePythonModal();
+                    }
+                });
+            }
+
+            const pythonSkillsModal = document.getElementById('pythonSkillsModal');
+            if (pythonSkillsModal) {
+                pythonSkillsModal.addEventListener('click', function (e) {
+                    if (e.target === pythonSkillsModal) {
+                        closePythonSkillsModal();
+                    }
+                });
+            }
+
+            const sqlSkillsModal = document.getElementById('sqlSkillsModal');
+            if (sqlSkillsModal) {
+                sqlSkillsModal.addEventListener('click', function (e) {
+                    if (e.target === sqlSkillsModal) {
+                        closeSQLSkillsModal();
+                    }
+                });
+            }
+
+            const mituSQLModal = document.getElementById('mituSQLModal');
+            if (mituSQLModal) {
+                mituSQLModal.addEventListener('click', function (e) {
+                    if (e.target === mituSQLModal) {
+                        closeMituSQLModal();
+                    }
+                });
+            }
+
+            const tbiModal = document.getElementById('tbiModal');
+            if (tbiModal) {
+                tbiModal.addEventListener('click', function (e) {
+                    if (e.target === tbiModal) {
+                        closeTBIModal();
+                    }
+                });
+            }
+
+            const powerBISkillsModal = document.getElementById('powerBISkillsModal');
+            if (powerBISkillsModal) {
+                powerBISkillsModal.addEventListener('click', function (e) {
+                    if (e.target === powerBISkillsModal) {
+                        closePowerBISkillsModal();
+                    }
+                });
+            }
+
+            const tableauSkillsModal = document.getElementById('tableauSkillsModal');
+            if (tableauSkillsModal) {
+                tableauSkillsModal.addEventListener('click', function (e) {
+                    if (e.target === tableauSkillsModal) {
+                        closeTableauSkillsModal();
+                    }
+                });
+            }
+        });
+
+        // Python Modal Functions
+        function openPythonModal() {
+            document.getElementById('pythonModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePythonModal() {
+            document.getElementById('pythonModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Image Modal Functions
+        function openImageModal(imageSrc, imageTitle) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalImageTitle');
+
+            modalImage.src = imageSrc;
+            modalTitle.textContent = imageTitle || '';
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Python Skills Modal Functions
+        function openPythonSkillsModal() {
+            document.getElementById('pythonSkillsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePythonSkillsModal() {
+            document.getElementById('pythonSkillsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // SQL Skills Modal Functions
+        function openSQLSkillsModal() {
+            document.getElementById('sqlSkillsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSQLSkillsModal() {
+            document.getElementById('sqlSkillsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // MITU SQL Training Modal Functions
+        function openMituSQLModal() {
+            document.getElementById('mituSQLModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMituSQLModal() {
+            document.getElementById('mituSQLModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // TBI Internship Modal Functions
+        function openTBIModal() {
+            document.getElementById('tbiModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTBIModal() {
+            document.getElementById('tbiModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Power BI Skills Modal Functions
+        function openPowerBISkillsModal() {
+            document.getElementById('powerBISkillsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePowerBISkillsModal() {
+            document.getElementById('powerBISkillsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Tableau Skills Modal Functions
+        function openTableauSkillsModal() {
+            document.getElementById('tableauSkillsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTableauSkillsModal() {
+            document.getElementById('tableauSkillsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+    <!-- Solar Decathlon Modal -->
+    <div id="solarModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-5xl mx-auto rounded-2xl shadow-2xl">
+                <!-- Close Button -->
+                <button onclick="closeSolarModal()"
+                    class="absolute top-4 right-4 w-10 h-10 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition z-10">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold dark:text-white mb-2">Solar Decathlon India 2024-25</h2>
+                        <p class="text-blue-600 dark:text-blue-400 font-semibold">Team Aavishkar - SAKEC</p>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Photo Gallery</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <img src="solar-cert1.png" alt="Internship Completion Certificate"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="solar-cert2.png" alt="Certificate of Achievement"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="sakec-certificate.png" alt="SAKEC Certificate of Appreciation"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="solar-team.png" alt="Team Aavishkar"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="solar-group.png" alt="Team Photo"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="solar-badge.png" alt="Finals Badge"
+                                class="w-full h-48 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                        </div>
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Project Highlights</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Key Opportunities</h4>
+                                <ul class="list-disc list-inside text-slate-700 dark:text-slate-300 space-y-1 text-sm">
+                                    <li>Worked on sustainable cooling & retrofitting solutions</li>
+                                    <li>Contributed to material evaluation, technical documentation, and presentations
+                                    </li>
+                                    <li>Visited companies and labs to present product ideas and discuss practical
+                                        applications</li>
+                                    <li>Collaborated with Vighneshwar Airconditioning Pvt. Ltd. and IIT Bombay Tata Lab
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- External Links -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Resources & Links</h3>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <a href="https://drive.google.com/drive/folders/1zcpABwQlE_-WdqnsSLhLz87q-kMFrUUD"
+                                target="_blank"
+                                class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                                <i class="fas fa-file-alt text-blue-600 dark:text-blue-400"></i>
+                                <div>
+                                    <p class="font-semibold dark:text-white text-sm">Project Deliverables</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">View Documentation</p>
+                                </div>
+                                <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=bZazZl6VuwM" target="_blank"
+                                class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                                <i class="fas fa-video text-blue-600 dark:text-blue-400"></i>
+                                <div>
+                                    <p class="font-semibold dark:text-white text-sm">Product Demo Video</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Watch Demonstration</p>
+                                </div>
+                                <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/tirth-madane-a9935528b_solardecathlonindia-teamaavishkar-rcr-activity-7335704154784333824-aPSC"
+                                target="_blank"
+                                class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                                <i class="fab fa-linkedin text-blue-600 dark:text-blue-400"></i>
+                                <div>
+                                    <p class="font-semibold dark:text-white text-sm">LinkedIn Post #1</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Team Announcement</p>
+                                </div>
+                                <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/posts/tirth-madane-a9935528b_excited-to-share-a-milestone-from-my-journey-activity-7377724462877556736-zmB4"
+                                target="_blank"
+                                class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                                <i class="fab fa-linkedin text-blue-600 dark:text-blue-400"></i>
+                                <div>
+                                    <p class="font-semibold dark:text-white text-sm">LinkedIn Post #2</p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Journey Milestone</p>
+                                </div>
+                                <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Python Training Modal -->
+    <div id="pythonModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-4xl mx-auto rounded-2xl shadow-2xl">
+                <!-- Close Button -->
+                <button onclick="closePythonModal()"
+                    class="absolute top-4 right-4 w-10 h-10 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition z-10">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold dark:text-white mb-2">Python Training Program</h2>
+                        <p class="text-blue-600 dark:text-blue-400 font-semibold">Placify Technologies Pvt. Ltd.</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2">Industrial Training | June 2024 -
+                            September 2024</p>
+                    </div>
+
+                    <!-- Certificates Gallery -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Certificates</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <img src="python-cert1.png" alt="Python Course Completion Certificate"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="python-cert2.png" alt="Python Internship Certificate"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Link -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Share & Connect</h3>
+                        <a href="https://www.linkedin.com/posts/tirth-madane-a9935528b_python-skills-placifytechnologies-activity-7243290828712882177-pdl3?utm_source=share&utm_medium=member_desktop"
+                            target="_blank"
+                            class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                            <i class="fab fa-linkedin text-blue-600 dark:text-blue-400 text-2xl"></i>
+                            <div>
+                                <p class="font-semibold dark:text-white text-sm">View LinkedIn Post</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">See my Python training journey and
+                                    achievements</p>
+                            </div>
+                            <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MITU SQL Training Modal -->
+    <div id="mituSQLModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-4xl mx-auto rounded-2xl shadow-2xl">
+                <!-- Close Button -->
+                <button onclick="closeMituSQLModal()"
+                    class="absolute top-4 right-4 w-10 h-10 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition z-10">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold dark:text-white mb-2">QueryCraft: The Art of Database Engineering
+                        </h2>
+                        <p class="text-blue-600 dark:text-blue-400 font-semibold">MITU Skillologies, Pune</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2">Practical Training Program | December
+                            8-12, 2025</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">Shah & Anchor Kutchhi Engineering College,
+                            Mumbai</p>
+                    </div>
+
+                    <!-- Program Highlights -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Program Highlights</h3>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">
+                                As part of this comprehensive training program, I developed a <strong>Python
+                                    (Tkinter)–based application integrated with a database</strong>, which helped me
+                                understand real-world database connectivity and operations. This hands-on experience
+                                strengthened my practical skills in SQL and database management.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Certificates Gallery -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Certificates & Gallery</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <img src="mitu-cert1.png" alt="MITU Skillologies Certificate"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="mitu-cert2.jpg" alt="QueryCraft Presentation"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="mitu-cert3.jpg" alt="Certificate Receiving Ceremony"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="mitu-cert4.jpg" alt="SAKEC Certificate of Completion"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Link -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Share & Connect</h3>
+                        <a href="https://www.linkedin.com/posts/tirth-madane-a9935528b_sql-python-querycraft-activity-7407758498744233984-NAvL?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZaUNUByJk-LY-40qUKjx7ScjqRZ-zoiDs"
+                            target="_blank"
+                            class="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600 transition">
+                            <i class="fab fa-linkedin text-blue-600 dark:text-blue-400 text-2xl"></i>
+                            <div>
+                                <p class="font-semibold dark:text-white text-sm">View LinkedIn Post</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">See my SQL training journey and
+                                    achievements</p>
+                            </div>
+                            <i class="fas fa-external-link-alt text-slate-400 ml-auto"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TBI Internship Modal -->
+    <div id="tbiModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-4xl mx-auto rounded-2xl shadow-2xl">
+                <!-- Close Button -->
+                <button onclick="closeTBIModal()"
+                    class="absolute top-4 right-4 w-10 h-10 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition z-10">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold dark:text-white mb-2">Internship - Technology Business Incubator
+                        </h2>
+                        <p class="text-blue-600 dark:text-blue-400 font-semibold">Shah & Anchor Kutchhi Engineering
+                            College (SAKEC)</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2">Solar Decathlon India 2024-25
+                            Competition</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">Team Aavishkar</p>
+                    </div>
+
+                    <!-- Internship Details -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">About the Internship</h3>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                            <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-3">
+                                Completed internship at the Technology Business Incubator (TBI) as part of the
+                                <strong>Solar Decathlon India 2024-25 Competition</strong> with Team Aavishkar. This
+                                internship provided hands-on experience in sustainable engineering solutions and
+                                innovation development in a real-world incubator environment.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Certificates Gallery -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold dark:text-white mb-4">Certificates & Recognition</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <img src="tbi-internship-cert.png" alt="TBI Internship Completion Certificate"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                            <img src="tbi-cert-appreciation.png" alt="SAKEC Certificate of Appreciation"
+                                class="w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition cursor-pointer"
+                                onclick="window.open(this.src, '_blank')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple Image Modal -->
+    <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+        onclick="closeImageModal()">
+        <div class="relative max-w-6xl max-h-screen" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeImageModal()"
+                class="absolute -top-12 right-0 w-10 h-10 bg-white hover:bg-gray-200 rounded-full flex items-center justify-center transition z-10">
+                <i class="fas fa-times text-gray-800"></i>
+            </button>
+
+            <!-- Image Title -->
+            <h3 id="modalImageTitle" class="absolute -top-12 left-0 text-white text-lg font-semibold"></h3>
+
+            <!-- Image -->
+            <img id="modalImage" src="" alt="Certificate"
+                class="max-w-full max-h-screen object-contain rounded-lg shadow-2xl">
+        </div>
+    </div>
+
+    <!-- SQL Skills Modal -->
+    <div id="sqlSkillsModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-3xl mx-auto rounded-lg shadow-xl">
+                <!-- Close Button -->
+                <button onclick="closeSQLSkillsModal()"
+                    class="absolute top-3 right-3 w-8 h-8 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded flex items-center justify-center transition">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300 text-sm"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded flex items-center justify-center">
+                                <i class="fas fa-database text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-white">SQL</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Strong understanding of relational
+                                    databases and complex SQL querying</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div class="space-y-5">
+                        <!-- Database Fundamentals & DDL -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Database Fundamentals & DDL Commands
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>SQL vs NoSQL, Tables & Schemas</li>
+                                <li>CREATE, ALTER, TRUNCATE, DROP</li>
+                                <li>Database and table management</li>
+                            </ul>
+                        </div>
+
+                        <!-- Data Manipulation & Retrieval -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Data Manipulation & Retrieval
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>INSERT, UPDATE, DELETE operations</li>
+                                <li>SELECT queries with WHERE, ORDER BY, LIMIT</li>
+                                <li>Aggregate functions: COUNT, SUM, AVG, MIN, MAX</li>
+                                <li>GROUP BY and HAVING clauses</li>
+                            </ul>
+                        </div>
+
+                        <!-- Joins & Relationships -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Joins & Relationships
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Inner Join, Left Join, Right Join</li>
+                                <li>Full Outer Join & Cross Join</li>
+                                <li>Self Join</li>
+                            </ul>
+                        </div>
+
+                        <!-- Advanced Concepts -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Advanced Concepts
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Subqueries & nested queries</li>
+                                <li>Transactions (COMMIT, ROLLBACK, SAVEPOINT)</li>
+                                <li>Constraints: PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL</li>
+                                <li>Indexing & performance optimization</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
+                                MySQL | PostgreSQL | SQL Server
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Python Skills Modal -->
+    <div id="pythonSkillsModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-3xl mx-auto rounded-lg shadow-xl">
+                <!-- Close Button -->
+                <button onclick="closePythonSkillsModal()"
+                    class="absolute top-3 right-3 w-8 h-8 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded flex items-center justify-center transition">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300 text-sm"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded flex items-center justify-center">
+                                <i class="fab fa-python text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-white">Python</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Python for data analysis,
+                                    preprocessing, and visualization</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div class="space-y-5">
+                        <!-- Core Python & Control Flow -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Core Python & Control Flow
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Variables, Data Types, Operators</li>
+                                <li>Conditional Statements & Loops</li>
+                                <li>Functions & Lambda Expressions</li>
+                                <li>List Comprehensions</li>
+                            </ul>
+                        </div>
+
+                        <!-- Data Structures & OOP -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Data Structures & Object-Oriented Programming
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Lists, Tuples, Dictionaries, Sets</li>
+                                <li>Classes, Objects, Inheritance, Polymorphism</li>
+                                <li>File Handling & JSON Processing</li>
+                            </ul>
+                        </div>
+
+                        <!-- Data Analysis -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Data Analysis & Visualization
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Data collection, cleaning, and transformation</li>
+                                <li>Exploratory data analysis</li>
+                                <li>Statistical analysis and visualization</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
+                                NumPy | Pandas | Matplotlib | Seaborn
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hackathon Modal -->
+    <div id="hackathonModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-4xl mx-auto rounded-lg shadow-xl">
+                <!-- Close Button -->
+                <button onclick="closeHackathonModal()"
+                    class="absolute top-3 right-3 w-8 h-8 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded flex items-center justify-center transition">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300 text-sm"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="w-12 h-12 bg-red-50 dark:bg-red-900/30 text-red-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-white">24-Hour Hackathon - SCOE</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Saraswati College of Engineering &
+                                    Technology | April 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate Image -->
+                    <div class="mb-6">
+                        <img src="hackathon-certificate.png" alt="Hackathon Participation Certificate"
+                            class="w-full rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 cursor-pointer hover:scale-105 transition-transform"
+                            onclick="window.open('hackathon-certificate.png', '_blank')">
+                    </div>
+
+                    <!-- Hackathon Experience -->
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl">
+                            <h3 class="font-bold text-lg mb-4 text-blue-600 dark:text-blue-400 flex items-center gap-2">
+                                <i class="fas fa-lightbulb"></i>
+                                Hackathon Experience
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                                Participating in my first hackathon was an exhilarating experience. It involved a lot of
+                                teamwork to develop a solution to a given problem. We chose Web Development as our
+                                domain to solve the problem.
+                            </p>
+                        </div>
+
+                        <!-- Project Details -->
+                        <div
+                            class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800">
+                            <h3 class="font-bold text-lg mb-4 text-blue-600 dark:text-blue-400 flex items-center gap-2">
+                                <i class="fas fa-project-diagram"></i>
+                                Smart Parking Management System
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                We developed a web application that enables drivers to find available parking spaces in
+                                the city more efficiently.
+                                The project incorporated features such as parking spot reservations, payment processing,
+                                and notifications for parking availability and pricing.
+                            </p>
+                        </div>
+
+                        <!-- Key Learnings -->
+                        <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl">
+                            <h3
+                                class="font-bold text-lg mb-4 text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <i class="fas fa-graduation-cap"></i>
+                                Key Learnings
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                The project was not completed within the time limit due to a little bit of insufficient
+                                knowledge.
+                                But despite the pressure and sleep deprivation, it was an enriching experience that
+                                taught me a lot about
+                                <span class="font-semibold text-blue-600 dark:text-blue-400">innovation</span>,
+                                <span class="font-semibold text-blue-600 dark:text-blue-400">teamwork</span>, and the
+                                <span class="font-semibold text-blue-600 dark:text-blue-400">tech community</span>.
+                            </p>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="flex flex-wrap gap-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                            <a href="https://github.com/SohamSurve22/Code_Crusaders_19.git" target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold transition">
+                                <i class="fab fa-github text-xl"></i>
+                                View on GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/posts/tirth-madane-a9935528b_hackathon-certificate-activity-7221923277735100416-Z35m?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZaUNUByJk-LY-40qUKjx7ScjqRZ-zoiDs"
+                                target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                                <i class="fab fa-linkedin text-xl"></i>
+                                LinkedIn Post
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power BI Skills Modal -->
+    <div id="powerBISkillsModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-3xl mx-auto rounded-lg shadow-xl">
+                <!-- Close Button -->
+                <button onclick="closePowerBISkillsModal()"
+                    class="absolute top-3 right-3 w-8 h-8 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded flex items-center justify-center transition">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300 text-sm"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded flex items-center justify-center">
+                                <i class="fas fa-chart-bar text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-white">Power BI</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Data modeling, business
+                                    intelligence, and interactive dashboard development</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div class="space-y-5">
+                        <!-- Data Modeling & Preparation -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Data Modeling & Preparation
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Connecting to multiple data sources (Excel, CSV, Databases)</li>
+                                <li>Star schema design (fact & dimension tables)</li>
+                                <li>Data cleaning and transformation using Power Query</li>
+                            </ul>
+                        </div>
+
+                        <!-- DAX & Calculations -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                DAX & Calculations
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Calculated columns and measures</li>
+                                <li>Time intelligence functions (YTD, MTD, YoY)</li>
+                                <li>Business KPI creation (Revenue, Occupancy, Profitability)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Dashboard Design & Visualization -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Dashboard Design & Visualization
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Interactive dashboards with slicers and filters</li>
+                                <li>Advanced visuals (maps, heatmaps, dual-axis charts)</li>
+                                <li>Data storytelling and best-practice dashboard layouts</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
+                                Power BI | Power Query | DAX
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tableau Skills Modal -->
+    <div id="tableauSkillsModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="relative bg-white dark:bg-slate-800 max-w-3xl mx-auto rounded-lg shadow-xl">
+                <!-- Close Button -->
+                <button onclick="closeTableauSkillsModal()"
+                    class="absolute top-3 right-3 w-8 h-8 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded flex items-center justify-center transition">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300 text-sm"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-6">
+                    <!-- Header -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded flex items-center justify-center">
+                                <i class="fas fa-chart-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold dark:text-white">Tableau</h2>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Interactive data visualization and
+                                    analytical dashboard creation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div class="space-y-5">
+                        <!-- Data Connection & Preparation -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Data Connection & Preparation
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Connecting to Excel, CSV, and relational databases</li>
+                                <li>Data cleaning using Tableau data preparation features</li>
+                            </ul>
+                        </div>
+
+                        <!-- Calculations & Analytics -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Calculations & Analytics
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Calculated fields and table calculations</li>
+                                <li>Level of Detail (LOD) expressions</li>
+                                <li>Parameters and filters for dynamic analysis</li>
+                            </ul>
+                        </div>
+
+                        <!-- Visualization & Dashboarding -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Visualization & Dashboarding
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Basic and advanced charts (bar, line, scatter, funnel, waterfall, dual-axis)</li>
+                                <li>Interactive dashboards with actions</li>
+                                <li>Visual formatting and insight-driven design</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
+                                Tableau Desktop | Calculated Fields | LOD Expressions
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hackathon Modal Functions
+        function openHackathonModal() {
+            document.getElementById('hackathonModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeHackathonModal() {
+            document.getElementById('hackathonModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('DOMContentLoaded', function () {
+            const hackathonModal = document.getElementById('hackathonModal');
+            if (hackathonModal) {
+                hackathonModal.addEventListener('click', function (e) {
+                    if (e.target === hackathonModal) {
+                        closeHackathonModal();
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+
+</html>
