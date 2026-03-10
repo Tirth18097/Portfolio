@@ -150,40 +150,42 @@
 <body class="text-slate-800">
     <nav
         class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold flex items-center gap-2">
-                <span class="bg-blue-900 text-white px-2 py-1 rounded">TM</span>
+        <div class="w-full px-8 md:px-16 lg:px-24 py-5 flex justify-between items-center">
+            <div class="text-3xl font-bold flex items-center gap-3">
+                <span class="bg-blue-900 text-white px-3 py-1.5 rounded text-2xl">TM</span>
                 <span class="hidden sm:inline dark:text-white">Tirth Madane</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="#home" class="hover:text-blue-600">Home</a>
-                <a href="#about" class="hover:text-blue-600">About</a>
-                <a href="#skills" class="hover:text-blue-600">Skills</a>
-                <a href="#experience" class="hover:text-blue-600">Experience</a>
-                <a href="#projects" class="hover:text-blue-600">Projects</a>
-                <a href="#contact" class="hover:text-blue-600">Contact</a>
+            <div class="hidden md:flex space-x-10 text-base font-medium text-slate-600 dark:text-slate-300">
+                <a href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
+                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="theme-toggle"
-                    class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400">
-                    <i id="theme-toggle-icon" class="fas fa-moon"></i>
+                    class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400">
+                    <i id="theme-toggle-icon" class="fas fa-moon text-base"></i>
                 </button>
                 <a href="#contact"
-                    class="bg-blue-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-800 transition">Let's
+                    class="bg-blue-900 text-white px-7 py-3 rounded-full text-base font-semibold hover:bg-blue-800 transition">Let's
                     Talk</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 hero-pattern min-h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <p class="text-blue-500 font-semibold mb-2">Hello, I'm</p>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 dark:text-white">Tirth <span
+
+    <section id="home" class="hero-pattern min-h-screen flex items-center">
+        <div class="w-full flex flex-col md:flex-row items-center px-8 md:px-16 lg:px-24 pt-24 pb-12 gap-8 md:gap-0">
+            <!-- Left: Text Content (55%) -->
+            <div class="w-full md:w-[55%] order-2 md:order-1 flex flex-col justify-center">
+                <p class="text-blue-500 font-semibold mb-3 text-lg">Hello, I'm</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-5 dark:text-white leading-tight">Tirth <span
                         class="text-blue-500">Madane</span></h1>
                 <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-6 font-medium">Aspiring Data
                     Scientist | ML Enthusiast</h2>
-                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-lg">
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-xl text-base md:text-lg">
                     Aspiring Data Scientist with hands-on experience in Python, SQL, and data visualization. Passionate
                     about analyzing datasets, building ML models, and translating data into actionable insights for
                     real-world problems.
@@ -208,25 +210,23 @@
                             class="fas fa-envelope fa-xl"></i></a>
                 </div>
             </div>
-            <div class="order-1 md:order-2 flex justify-center relative">
+            <!-- Right: Photo (45%) -->
+            <div class="w-full md:w-[45%] order-1 md:order-2 flex justify-center items-center relative py-10">
                 <div
-                    class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-white dark:border-slate-800 shadow-2xl overflow-hidden z-10">
+                    class="relative w-64 h-64 md:w-[300px] md:h-[300px] lg:w-[380px] lg:h-[380px] rounded-full border-8 border-white dark:border-slate-800 shadow-2xl overflow-hidden z-10">
                     <img src="portfolio.png" alt="Tirth Madane" class="w-full h-full object-cover">
                 </div>
                 <div
-                    class="absolute bottom-4 right-4 md:right-10 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl z-20 border border-slate-100 dark:border-slate-700">
-                    <p class="text-blue-600 font-bold text-2xl">9.681</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">Best SGPA
-                    </p>
+                    class="absolute top-4 right-4 md:right-8 w-24 h-24 lg:w-32 lg:h-32 bg-blue-900 rounded-full opacity-10">
                 </div>
-                <div class="absolute -top-4 -right-4 w-32 h-32 bg-blue-900 rounded-full opacity-10"></div>
-                <div class="absolute bottom-0 -left-10 w-24 h-24 border-4 border-blue-500 rounded-full opacity-20">
+                <div
+                    class="absolute bottom-4 left-4 md:left-8 w-16 h-16 lg:w-20 lg:h-20 border-4 border-blue-500 rounded-full opacity-20">
                 </div>
             </div>
         </div>
     </section>
     <section id="about" class="py-20 bg-white dark:bg-slate-900 transition-colors reveal">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
                     <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">About Me</p>
@@ -259,6 +259,17 @@
                         <h4 class="font-bold text-blue-900 dark:text-blue-400">B.Tech in Computer Engineering</h4>
                         <p class="text-sm text-slate-500 dark:text-slate-400">Shah And Anchor Kutchhi Engineering
                             College, Mumbai</p>
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            <span
+                                class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-yellow-50 dark:from-purple-900/30 dark:to-yellow-900/20 text-slate-700 dark:text-slate-200 text-xs font-semibold px-4 py-2 rounded-full border border-purple-200 dark:border-purple-700/50 shadow-sm">
+                                <i class="fas fa-award text-purple-500 dark:text-purple-400"></i>
+                                <span class="text-purple-700 dark:text-purple-300">Specialization: Data Science
+                                    (Honours)</span>
+                                <span class="text-slate-300 dark:text-slate-600">•</span>
+                                <i class="fas fa-star text-yellow-500"></i>
+                                <span class="text-yellow-700 dark:text-yellow-400">CGPA: 10.0</span>
+                            </span>
+                        </div>
                     </div>
                     <div class="space-y-4">
                         <p class="text-xs font-bold text-slate-400 uppercase">Academic Performance (SGPA)</p>
@@ -305,7 +316,7 @@
 
 
     <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-800/50 reveal">
-        <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="w-full px-8 md:px-16 lg:px-24 text-center">
 
 
             <h2 class="text-4xl font-bold mb-4 dark:text-white">My <span class="text-blue-500">Skills</span>
@@ -349,24 +360,47 @@
                     </div>
                 </div>
 
-                <!-- Second Column: SQL -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
-                    onclick="openSQLSkillsModal()">
-                    <div class="flex justify-between items-start mb-6">
-                        <div
-                            class="w-12 h-12 bg-cyan-50 dark:bg-cyan-900/50 rounded-lg flex items-center justify-center p-2">
-                            <img src="sql-logo.png" alt="SQL" class="w-full h-full object-contain">
+                <!-- Second Column: SQL + Machine Learning Stacked -->
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                        onclick="openSQLSkillsModal()">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-cyan-50 dark:bg-cyan-900/50 rounded-lg flex items-center justify-center p-2">
+                                <img src="sql-logo.png" alt="SQL" class="w-full h-full object-contain">
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Database</span>
                         </div>
-                        <span
-                            class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Database</span>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">SQL</h3>
+                        <button
+                            class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                            onclick="event.stopPropagation(); openSQLSkillsModal();">
+                            <i class="fas fa-list text-xs"></i>
+                            See competencies
+                        </button>
                     </div>
-                    <h3 class="font-bold text-xl mb-4 text-left dark:text-white">SQL</h3>
-                    <button
-                        class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
-                        onclick="event.stopPropagation(); openSQLSkillsModal();">
-                        <i class="fas fa-list text-xs"></i>
-                        See competencies
-                    </button>
+
+                    <!-- Machine Learning Card -->
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 card-hover cursor-pointer"
+                        onclick="openMLSkillsModal()">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="w-12 h-12 bg-green-50 dark:bg-green-900/30 text-green-600 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-brain fa-xl"></i>
+                            </div>
+                            <span
+                                class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">AI
+                                / ML</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Machine Learning</h3>
+                        <button
+                            class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
+                            onclick="event.stopPropagation(); openMLSkillsModal();">
+                            <i class="fas fa-list text-xs"></i>
+                            See competencies
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Third Column: Power BI & Tableau Stacked -->
@@ -413,7 +447,7 @@
         </div>
     </section>
     <section id="leadership" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
                 <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Leadership</p>
                 <h2 class="text-4xl font-bold dark:text-white">Positions of <span
@@ -461,7 +495,7 @@
         </div>
     </section>
     <section id="achievements" class="py-20 bg-white dark:bg-slate-900 transition-colors">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
                 <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Recognition</p>
                 <h2 class="text-4xl font-bold dark:text-white">Notable <span class="text-blue-500">Achievements</span>
@@ -521,12 +555,19 @@
                                 Bombay Tata Lab</span>
                         </div>
 
-                        <!-- View Details Button -->
-                        <button onclick="openSolarModal()"
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
-                            <i class="fas fa-images"></i>
-                            View Gallery & Details
-                        </button>
+                        <!-- View Details Button + Feedback Button -->
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="openSolarModal()"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
+                                <i class="fas fa-images"></i>
+                                View Gallery &amp; Details
+                            </button>
+                            <button onclick="openFeedbackModal()"
+                                class="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-lg text-sm font-semibold transition inline-flex items-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                Post Feedback
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -535,7 +576,7 @@
 
     <!-- Experience Section Wrapper -->
     <section id="experience" class="py-20 bg-white dark:bg-slate-900 transition-colors">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
                 <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">MY JOURNEY</p>
                 <h2 class="text-4xl font-bold dark:text-white">Professional <span
@@ -562,7 +603,7 @@
     <section id="roles" class="card-section-container reveal"></section>
 
     <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors reveal">
-        <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="w-full px-8 md:px-16 lg:px-24 text-center">
             <h2 class="text-4xl font-bold mb-12 text-blue-900 dark:text-white">My <span
                     class="text-blue-500">Projects</span></h2>
 
@@ -636,8 +677,66 @@
         </div>
     </section>
 
+
+    <!-- ===== FEEDBACK MODAL ===== -->
+    <div id="feedback-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4"
+        onclick="if(event.target===this) closeFeedbackModal()">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <!-- Panel -->
+        <div
+            class="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col overflow-hidden">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-comments text-blue-500 text-lg"></i>
+                    <span class="font-bold text-lg dark:text-white">Feedback</span>
+                    <span id="fb-count-badge"
+                        class="bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300 text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                </div>
+                <button onclick="closeFeedbackModal()"
+                    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-white transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <!-- Comment Feed (scrollable) -->
+            <div class="flex-1 overflow-y-auto px-6 py-4 space-y-3">
+                <div id="fb-loading" class="text-center py-8 text-slate-400 dark:text-slate-500">
+                    <i class="fas fa-spinner fa-spin text-2xl"></i>
+                    <p class="text-sm mt-2">Loading...</p>
+                </div>
+                <div id="fb-empty" class="hidden text-center py-8 text-slate-400 dark:text-slate-500">
+                    <i class="fas fa-comment-slash text-4xl opacity-30 mb-2"></i>
+                    <p class="text-sm">No feedback yet. Be the first!</p>
+                </div>
+                <div id="fb-feed" class="space-y-3"></div>
+            </div>
+            <!-- Post Form (sticky bottom) -->
+            <div class="px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-900">
+                <div class="flex gap-2 mb-2">
+                    <input id="fb-name" type="text" maxlength="40" placeholder="Your name"
+                        class="flex-1 px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white dark:placeholder-slate-400 transition">
+                </div>
+                <div class="flex gap-2 items-end">
+                    <textarea id="fb-message" rows="2" maxlength="300" placeholder="Write your feedback..."
+                        class="flex-1 px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white dark:placeholder-slate-400 transition resize-none"></textarea>
+                    <button id="fb-submit"
+                        class="bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-1 flex-shrink-0">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="flex justify-between mt-1">
+                    <p id="fb-error" class="text-red-500 text-xs hidden">Please enter name and feedback.</p>
+                    <p id="fb-success" class="text-green-500 text-xs hidden">✅ Posted!</p>
+                    <span id="fb-char-count" class="text-xs text-slate-400 ml-auto">0 / 300</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <section id="contact" class="py-20 bg-white dark:bg-slate-900 transition-colors reveal">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
                 <p class="text-blue-500 font-bold text-sm uppercase mb-2">Get in touch</p>
                 <h2 class="text-4xl font-bold dark:text-white">Let's <span class="text-blue-500">Connect</span></h2>
@@ -696,6 +795,167 @@
     </section>
 
     <script src="card-section.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+    <script>
+        // ===== FIREBASE FEEDBACK SYSTEM =====
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDrmLzm1IV5vj2e6K8plvLXQAauakQtRw",
+            authDomain: "portfolio-9854f.firebaseapp.com",
+            projectId: "portfolio-9854f",
+            storageBucket: "portfolio-9854f.firebasestorage.app",
+            messagingSenderId: "1011601085165",
+            appId: "1:1011601085165:web:d8e053e81d5eecf8fc72e4",
+            measurementId: "G-EQ4861J9FJ",
+            databaseURL: "https://portfolio-9854f-default-rtdb.firebaseio.com"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const feedbackRef = db.ref('feedback');
+
+        // Modal open/close
+        function openFeedbackModal() {
+            const modal = document.getElementById('feedback-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeFeedbackModal() {
+            const modal = document.getElementById('feedback-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Avatar color palette
+        const AVATAR_COLORS = [
+            '#1e3a8a', '#1d4ed8', '#2563eb', '#7c3aed', '#6d28d9',
+            '#db2777', '#be123c', '#0f766e', '#0369a1', '#b45309'
+        ];
+
+        function getAvatarColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+        }
+
+        function timeAgo(timestamp) {
+            const diff = Date.now() - timestamp;
+            const s = Math.floor(diff / 1000);
+            if (s < 60) return 'just now';
+            const m = Math.floor(s / 60);
+            if (m < 60) return m + 'm ago';
+            const h = Math.floor(m / 60);
+            if (h < 24) return h + 'h ago';
+            const d = Math.floor(h / 24);
+            if (d < 30) return d + 'd ago';
+            return Math.floor(d / 30) + 'mo ago';
+        }
+
+        function isLiked(key) {
+            const liked = JSON.parse(localStorage.getItem('fb_liked') || '[]');
+            return liked.includes(key);
+        }
+
+        function toggleLike(key, currentLikes) {
+            const liked = JSON.parse(localStorage.getItem('fb_liked') || '[]');
+            const already = liked.includes(key);
+            const newLikes = already ? Math.max(0, currentLikes - 1) : currentLikes + 1;
+            feedbackRef.child(key).update({ likes: newLikes });
+            if (already) {
+                localStorage.setItem('fb_liked', JSON.stringify(liked.filter(k => k !== key)));
+            } else {
+                liked.push(key);
+                localStorage.setItem('fb_liked', JSON.stringify(liked));
+            }
+        }
+
+        function renderCard(key, data) {
+            const liked = isLiked(key);
+            const color = getAvatarColor(data.name || '?');
+            const initial = (data.name || '?')[0].toUpperCase();
+            const time = timeAgo(data.timestamp || Date.now());
+            const likes = data.likes || 0;
+            return `
+            <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 flex gap-3 items-start" id="fb-card-${key}">
+                <div class="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:${color}">${initial}</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                        <span class="font-semibold text-sm dark:text-white">${escapeHtml(data.name)}</span>
+                        <span class="text-xs text-slate-400">${time}</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed break-words">${escapeHtml(data.message)}</p>
+                </div>
+                <button onclick="toggleLike('${key}', ${likes})" class="flex-shrink-0 flex flex-col items-center gap-0.5 ml-1 group">
+                    <i class="${liked ? 'fas' : 'far'} fa-heart text-base ${liked ? 'text-red-500' : 'text-slate-300 group-hover:text-red-400'} transition"></i>
+                    <span class="text-xs ${liked ? 'text-red-500' : 'text-slate-400'} font-medium">${likes > 0 ? likes : ''}</span>
+                </button>
+            </div>`;
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Real-time listener
+        feedbackRef.orderByChild('timestamp').on('value', (snapshot) => {
+            document.getElementById('fb-loading').classList.add('hidden');
+            const feed = document.getElementById('fb-feed');
+            const empty = document.getElementById('fb-empty');
+            const items = [];
+            snapshot.forEach(child => items.push({ key: child.key, ...child.val() }));
+            items.reverse(); // newest first
+            // Update badge count
+            const badge = document.getElementById('fb-count-badge');
+            if (badge) badge.textContent = items.length;
+            if (items.length === 0) {
+                empty.classList.remove('hidden');
+                feed.innerHTML = '';
+            } else {
+                empty.classList.add('hidden');
+                feed.innerHTML = items.map(i => renderCard(i.key, i)).join('');
+            }
+        }, (error) => {
+            // Permission denied or network error
+            document.getElementById('fb-loading').innerHTML =
+                '<i class="fas fa-exclamation-circle text-red-400 text-2xl"></i><p class="text-sm text-red-400 mt-2">Unable to load. Please check Firebase rules.</p>';
+        });
+
+
+        // Submit handler
+        document.getElementById('fb-submit').addEventListener('click', () => {
+            const name = document.getElementById('fb-name').value.trim();
+            const message = document.getElementById('fb-message').value.trim();
+            const errEl = document.getElementById('fb-error');
+            const okEl = document.getElementById('fb-success');
+            errEl.classList.add('hidden');
+            okEl.classList.add('hidden');
+            if (!name || !message) { errEl.classList.remove('hidden'); return; }
+            const btn = document.getElementById('fb-submit');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            feedbackRef.push({ name, message, timestamp: firebase.database.ServerValue.TIMESTAMP, likes: 0 })
+                .then(() => {
+                    document.getElementById('fb-name').value = '';
+                    document.getElementById('fb-message').value = '';
+                    document.getElementById('fb-char-count').textContent = '0 / 300';
+                    okEl.classList.remove('hidden');
+                    setTimeout(() => okEl.classList.add('hidden'), 3000);
+                })
+                .catch(() => { errEl.textContent = 'Failed. Try again.'; errEl.classList.remove('hidden'); })
+                .finally(() => { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i>'; });
+        });
+
+        // Character counter
+        document.getElementById('fb-message').addEventListener('input', function () {
+            document.getElementById('fb-char-count').textContent = this.value.length + ' / 300';
+        });
+    </script>
+
     <script>
         // ========== INTERNSHIP SECTION ==========
         const internshipSection = new CardSection('internship', {
@@ -996,6 +1256,15 @@
                     }
                 });
             }
+
+            const mlSkillsModal = document.getElementById('mlSkillsModal');
+            if (mlSkillsModal) {
+                mlSkillsModal.addEventListener('click', function (e) {
+                    if (e.target === mlSkillsModal) {
+                        closeMLSkillsModal();
+                    }
+                });
+            }
         });
 
         // Python Modal Functions
@@ -1089,6 +1358,17 @@
 
         function closeTableauSkillsModal() {
             document.getElementById('tableauSkillsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // ML Skills Modal Functions
+        function openMLSkillsModal() {
+            document.getElementById('mlSkillsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMLSkillsModal() {
+            document.getElementById('mlSkillsModal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
     </script>
@@ -1568,6 +1848,73 @@
                             <p class="text-sm text-slate-600 dark:text-slate-400">
                                 <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
                                 NumPy | Pandas | Matplotlib | Seaborn
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Machine Learning Skills Modal -->
+    <div id="mlSkillsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="min-h-screen px-4 py-8 flex items-start justify-center">
+            <div class="relative bg-white dark:bg-slate-800 w-full max-w-lg rounded-2xl shadow-2xl">
+                <!-- Close Button -->
+                <button onclick="closeMLSkillsModal()"
+                    class="absolute top-4 right-4 w-10 h-10 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-full flex items-center justify-center transition z-10">
+                    <i class="fas fa-times text-slate-600 dark:text-slate-300"></i>
+                </button>
+
+                <!-- Modal Content -->
+                <div class="p-8">
+                    <!-- Header -->
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-green-50 dark:bg-green-900/30 text-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold dark:text-white">Machine Learning</h2>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Core algorithms and concepts
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Content -->
+                    <div class="space-y-5">
+                        <!-- Supervised Learning -->
+                        <div>
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                                Supervised Learning
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Linear Regression</li>
+                                <li>Logistic Regression</li>
+                                <li>Naive Bayes</li>
+                                <li>K-Nearest Neighbors (KNN)</li>
+                                <li>Decision Trees</li>
+                            </ul>
+                        </div>
+
+                        <!-- Currently Learning -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <h3 class="font-semibold text-slate-700 dark:text-slate-200 mb-2 flex items-center gap-2">
+                                Currently Learning
+                                <span
+                                    class="text-[10px] bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 px-2 py-0.5 rounded-full font-bold uppercase">In
+                                    Progress</span>
+                            </h3>
+                            <ul class="space-y-1.5 text-sm text-slate-600 dark:text-slate-400 ml-6">
+                                <li>Unsupervised Learning</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-600">
+                            <p class="text-sm text-slate-600 dark:text-slate-400">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Tools:</span>
+                                Python | Scikit-learn | NumPy | Pandas
                             </p>
                         </div>
                     </div>
