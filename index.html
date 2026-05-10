@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -186,7 +186,7 @@
                 <a href="#about" class="hover:text-blue-600 transition">About</a>
                 <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
                 <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
-                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+                <a href="projects.html" class="hover:text-blue-600 transition">Projects</a>
                 <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
             <div class="flex items-center gap-4">
@@ -626,128 +626,47 @@
 
     <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors reveal">
         <div class="w-full px-8 md:px-16 lg:px-24 text-center">
-            <h2 class="text-4xl font-bold mb-12 text-blue-900 dark:text-white">My <span
-                    class="text-blue-500">Projects</span></h2>
+            <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Portfolio</p>
+            <h2 class="text-4xl font-bold mb-4 text-blue-900 dark:text-white">My <span class="text-blue-500">Projects</span></h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto">Data science, machine learning, and full-stack projects built to solve real-world problems.</p>
 
-            <!-- Project Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto text-left">
+            <!-- Preview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left mb-12">
 
-                <!-- Hotel Revenue Analysis Project Card -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover flex flex-col">
-                    <!-- Power BI Icon at corner -->
-                    <div class="flex justify-end mb-4">
-                        <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center p-2">
-                            <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
-                        </div>
+                <!-- Preview 1: Hotel Revenue Analysis -->
+                <a href="projects.html" class="group bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover flex items-center gap-5 transition-all">
+                    <div class="w-14 h-14 bg-yellow-50 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center p-2.5 flex-shrink-0">
+                        <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
                     </div>
-
-                    <!-- Title -->
-                    <h3 class="text-2xl font-bold mb-2 dark:text-white">Hotel Revenue Analysis</h3>
-
-                    <!-- Subtitle -->
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 flex-grow">Internship Projects in Data Visualization and Analytics</p>
-
-                    <!-- Action Row -->
-                    <div class="flex items-center gap-4 justify-between mt-auto">
-                        <button onclick="toggleMilestone1()" id="milestone1Btn"
-                            class="milestone-btn flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all">
-                            <span class="text-lg">ℹ️ 🎯</span>
-                            <span>Milestone 1</span>
-                        </button>
-                        <a href="https://github.com/Tirth18097/Hotel_Business_Understand_Improve_Revenue.git"
-                            target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 bg-slate-800 dark:bg-slate-700 text-white rounded-lg flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition-all">
-                            <i class="fab fa-github fa-lg"></i>
-                        </a>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[10px] font-bold uppercase text-yellow-600 dark:text-yellow-400 mb-1">Data Analytics</p>
+                        <h3 class="font-bold text-slate-800 dark:text-white text-base">Hotel Revenue Analysis</h3>
+                        <p class="text-slate-400 text-sm mt-1">Power BI · DAX · Star Schema</p>
                     </div>
+                    <i class="fas fa-arrow-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0"></i>
+                </a>
 
-                    <!-- Expandable Milestone Information -->
-                    <div id="milestone1Info"
-                        class="milestone-info hidden mt-6 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
-                        <h4 class="font-bold text-lg mb-4 text-blue-600 dark:text-blue-400">Project Details:</h4>
-                        <ul class="space-y-3 text-slate-600 dark:text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Analyzed hotel booking and revenue data using Power BI</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Designed a star schema data model with fact and dimension tables</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Cleaned and transformed raw data using Power Query</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Created calculated columns for booking duration, stay type, and room category</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Built interactive dashboards to analyze revenue, occupancy, and profitability</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                                <span>Generated actionable insights to support business decision-making</span>
-                            </li>
-                        </ul>
+                <!-- Preview 2: Vyaas -->
+                <a href="projects.html" class="group bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover flex items-center gap-5 transition-all">
+                    <div class="w-14 h-14 bg-green-50 dark:bg-green-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-leaf text-green-500 text-xl"></i>
                     </div>
-                </div>
-
-                <!-- Vyaas — Smart Ayurvedic Crop Advisor Project Card -->
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover flex flex-col">
-                    <!-- Leaf Icon at corner -->
-                    <div class="flex justify-end mb-4">
-                        <div class="w-12 h-12 bg-green-50 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-leaf text-green-600 fa-lg"></i>
-                        </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[10px] font-bold uppercase text-green-600 dark:text-green-400 mb-1">AI / ML</p>
+                        <h3 class="font-bold text-slate-800 dark:text-white text-base">&#127807; Vyaas — Smart Crop Advisor</h3>
+                        <p class="text-slate-400 text-sm mt-1">Python · JavaScript · Machine Learning</p>
                     </div>
+                    <i class="fas fa-arrow-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0"></i>
+                </a>
+            </div><!-- end preview grid -->
 
-                    <!-- Title -->
-                    <h3 class="text-2xl font-bold mb-2 dark:text-white">&#127807; Vyaas</h3>
-
-                    <!-- Subtitle -->
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 flex-grow">Smart Ayurvedic Crop Advisor &mdash; AI-powered crop recommendations rooted in traditional Ayurvedic wisdom</p>
-
-                    <!-- Action Row -->
-                    <div class="flex items-center gap-4 justify-between mt-auto">
-                        <button onclick="toggleVyaasDetails()" id="vyaasDetailsBtn"
-                            class="milestone-btn flex items-center gap-2 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-5 py-2.5 rounded-lg font-semibold hover:bg-green-100 dark:hover:bg-green-900/50 transition-all">
-                            <span class="text-lg">&#127807; &#128269;</span>
-                            <span>View Details</span>
-                        </button>
-                        <a href="https://github.com/R-Krishita/vyaas" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 bg-slate-800 dark:bg-slate-700 text-white rounded-lg flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition-all">
-                            <i class="fab fa-github fa-lg"></i>
-                        </a>
-                    </div>
-
-                    <!-- Expandable Project Details -->
-                    <div id="vyaasDetailsInfo"
-                        class="milestone-info hidden mt-6 p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700">
-                        <h4 class="font-bold text-lg mb-4 text-green-600 dark:text-green-400">Project Highlights:</h4>
-                        <ul class="space-y-3 text-slate-600 dark:text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                <span>AI-powered crop recommendation system blending Ayurvedic principles with modern machine learning</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                <span>Analyzes soil type, climate, and seasonal factors to suggest the most suitable Ayurvedic crops</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                <span>Built with JavaScript (frontend) and Python (ML backend) for a seamless full-stack experience</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                <span>Promotes sustainable and holistic farming practices aligned with traditional Indian knowledge systems</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div><!-- end grid -->
+            <!-- CTA -->
+            <a href="projects.html"
+               class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg shadow-blue-900/20 hover:-translate-y-0.5">
+                <i class="fas fa-folder-open"></i>
+                View All Projects
+                <i class="fas fa-arrow-right text-sm"></i>
+            </a>
         </div>
     </section>
 

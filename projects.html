@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects | Tirth Madane</title>
+    <meta name="description" content="Explore Tirth Madane's data science and ML projects.">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ4861J9FJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EQ4861J9FJ');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light mode (default) */
+        body { background-color: #f8fafc; color: #1e293b; }
+
+        .hero-pattern {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Dark mode overrides */
+        .dark body { background-color: #0f172a; color: #f8fafc; }
+        .dark .hero-pattern {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+        }
+
+        /* Card hover */
+        .card-hover { transition: all 0.4s ease; }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px -5px rgba(59,130,246,0.25);
+            border-color: rgba(59,130,246,0.3);
+        }
+
+        /* Reveal animation */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Expandable details */
+        .details-panel {
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+        .details-panel.open { max-height: 600px; opacity: 1; }
+
+        /* Chip tags */
+        .chip {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-size: 11px; font-weight: 600;
+            padding: 3px 10px; border-radius: 999px;
+        }
+
+        /* Gradient text */
+        .blue-gradient-text {
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Status pulse */
+        @keyframes pulse-dot {
+            0%,100% { opacity:1; transform:scale(1); }
+            50% { opacity:0.5; transform:scale(1.4); }
+        }
+        .pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+        /* Filter buttons */
+        .filter-btn {
+            transition: all 0.25s;
+            border: 1px solid #e2e8f0;
+        }
+        .dark .filter-btn { border-color: #334155; }
+        .filter-btn.active, .filter-btn:hover {
+            background: #1e3a8a; border-color: transparent; color: white;
+        }
+        .dark .filter-btn.active, .dark .filter-btn:hover {
+            background: #3b82f6; border-color: transparent;
+        }
+
+        /* Nav */
+        nav {
+            background: rgba(248,250,252,0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .dark nav {
+            background: rgba(15,23,42,0.85);
+            border-bottom-color: #1e293b;
+        }
+
+        /* Project card accent bars */
+        .accent-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .accent-green  { background: linear-gradient(90deg, #10b981, #34d399); }
+        .accent-blue   { background: linear-gradient(90deg, #3b82f6, #6366f1); }
+    </style>
+</head>
+<body class="text-slate-800">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <i class="fas fa-arrow-left text-slate-400 group-hover:text-blue-600 transition text-sm"></i>
+            <span class="bg-blue-900 text-white px-3 py-1.5 rounded text-sm font-bold">TM</span>
+            <span class="text-slate-700 dark:text-slate-200 font-semibold hidden sm:inline">Tirth Madane</span>
+        </a>
+        <div class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <a href="index.html#about" class="hover:text-blue-600 transition hidden md:inline">About</a>
+            <a href="index.html#skills" class="hover:text-blue-600 transition hidden md:inline">Skills</a>
+            <a href="index.html#experience" class="hover:text-blue-600 transition hidden md:inline">Experience</a>
+            <span class="text-blue-600 font-semibold">Projects</span>
+            <!-- Dark mode toggle -->
+            <button id="theme-toggle" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 transition">
+                <i id="theme-icon" class="fas fa-moon text-base"></i>
+            </button>
+            <a href="index.html#contact" class="bg-blue-900 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-800 transition">Let's Talk</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero-pattern pt-32 pb-16 px-6">
+    <div class="max-w-7xl mx-auto">
+        <p class="text-blue-500 font-bold text-xs uppercase tracking-widest mb-3 reveal active">
+            <i class="fas fa-folder-open mr-2"></i>Portfolio
+        </p>
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-5 dark:text-white reveal active" style="transition-delay:0.1s">
+            My <span class="blue-gradient-text">Projects</span>
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl leading-relaxed reveal active" style="transition-delay:0.2s">
+            A curated collection of data science, machine learning, and full-stack projects — each solving a real-world problem with modern technology.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap gap-10 mt-10 reveal active" style="transition-delay:0.3s">
+            <div>
+                <p class="text-3xl font-extrabold text-blue-900 dark:text-white">2+</p>
+                <p class="text-slate-500 text-sm">Projects Completed</p>
+            </div>
+            <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div>
+                <p class="text-3xl font-extrabold text-blue-900 dark:text-white">3+</p>
+                <p class="text-slate-500 text-sm">Technologies Used</p>
+            </div>
+            <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div>
+                <p class="text-3xl font-extrabold text-blue-900 dark:text-white">100%</p>
+                <p class="text-slate-500 text-sm">Open Source</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FILTER BAR ===== -->
+<div class="max-w-7xl mx-auto px-6 py-8 flex flex-wrap gap-3 reveal" id="filterBar">
+    <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold text-white bg-blue-900" onclick="filterProjects('all', this)">All Projects</button>
+    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800" onclick="filterProjects('data', this)">Data Analytics</button>
+    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800" onclick="filterProjects('ml', this)">Machine Learning</button>
+    <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800" onclick="filterProjects('fullstack', this)">Full-Stack</button>
+</div>
+
+<!-- ===== PROJECTS GRID ===== -->
+<main class="max-w-7xl mx-auto px-6 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="projectsGrid">
+
+        <!-- PROJECT 1: Hotel Revenue Analysis -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover overflow-hidden reveal project-card" data-tags="data">
+            <div class="h-1 accent-yellow"></div>
+            <div class="p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-100 dark:border-yellow-800 rounded-2xl flex items-center justify-center p-2.5">
+                            <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="chip bg-yellow-50 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-700">
+                                <i class="fas fa-chart-bar text-[9px]"></i> Data Analytics
+                            </span>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <span class="w-2 h-2 rounded-full bg-green-400 pulse-dot"></span>
+                                <span class="text-xs text-slate-400">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/Tirth18097/Hotel_Business_Understand_Improve_Revenue.git" target="_blank" rel="noopener noreferrer"
+                       class="w-10 h-10 bg-slate-800 dark:bg-slate-700 text-white rounded-xl flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">Hotel Revenue Analysis</h2>
+                <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                    An end-to-end Business Intelligence solution analyzing hotel booking patterns and revenue streams using Power BI. Designed to support strategic decision-making with interactive dashboards and a star-schema data model.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="chip bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">Power BI</span>
+                    <span class="chip bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800">DAX</span>
+                    <span class="chip bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800">Power Query</span>
+                    <span class="chip bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600">Star Schema</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleDetails('hotel')"
+                        class="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300 px-5 py-2.5 rounded-xl font-semibold text-sm transition">
+                        <i class="fas fa-chevron-down text-xs" id="hotel-icon"></i>
+                        View Details
+                    </button>
+                    <a href="https://github.com/Tirth18097/Hotel_Business_Understand_Improve_Revenue.git" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 text-slate-400 hover:text-blue-600 text-sm font-medium transition">
+                        <i class="fas fa-external-link-alt text-xs"></i> Open GitHub
+                    </a>
+                </div>
+
+                <div id="hotel-details" class="details-panel mt-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-5">
+                    <h3 class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">Project Highlights</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Analyzed hotel booking and revenue data across multiple property types</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Designed a star schema data model with fact and dimension tables</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Cleaned and transformed raw data using Power Query</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Created calculated columns for booking duration, stay type, and room category</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Built interactive dashboards to analyze revenue, occupancy, and profitability</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-yellow-500 mt-0.5 flex-shrink-0"></i> Generated actionable insights to support business decision-making</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- PROJECT 2: Vyaas -->
+        <article class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm card-hover overflow-hidden reveal project-card" data-tags="ml fullstack">
+            <div class="h-1 accent-green"></div>
+            <div class="p-8">
+                <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-green-50 dark:bg-green-900/30 border border-green-100 dark:border-green-800 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-leaf text-green-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="chip bg-green-50 dark:bg-green-900/40 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-700">
+                                <i class="fas fa-brain text-[9px]"></i> AI / ML
+                            </span>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <span class="w-2 h-2 rounded-full bg-green-400 pulse-dot"></span>
+                                <span class="text-xs text-slate-400">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://github.com/R-Krishita/vyaas" target="_blank" rel="noopener noreferrer"
+                       class="w-10 h-10 bg-slate-800 dark:bg-slate-700 text-white rounded-xl flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">🌿 Vyaas — Smart Ayurvedic Crop Advisor</h2>
+                <p class="text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                    An AI-powered crop recommendation system that bridges ancient Ayurvedic wisdom with modern machine learning — analyzing soil, climate, and seasonal data to guide farmers toward sustainable cultivation.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="chip bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Python</span>
+                    <span class="chip bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">JavaScript</span>
+                    <span class="chip bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">Machine Learning</span>
+                    <span class="chip bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 border border-teal-100 dark:border-teal-800">Full-Stack</span>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleDetails('vyaas')"
+                        class="flex items-center gap-2 bg-green-50 dark:bg-green-900/30 hover:bg-green-100 dark:hover:bg-green-900/50 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 px-5 py-2.5 rounded-xl font-semibold text-sm transition">
+                        <i class="fas fa-chevron-down text-xs" id="vyaas-icon"></i>
+                        View Details
+                    </button>
+                    <a href="https://github.com/R-Krishita/vyaas" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 text-slate-400 hover:text-green-600 text-sm font-medium transition">
+                        <i class="fas fa-external-link-alt text-xs"></i> Open GitHub
+                    </a>
+                </div>
+
+                <div id="vyaas-details" class="details-panel mt-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-5">
+                    <h3 class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-widest mb-4">Project Highlights</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i> AI-powered crop recommendation blending Ayurvedic principles with modern ML</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i> Analyzes soil type, climate, and seasonal factors to recommend Ayurvedic crops</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i> Built with JavaScript (frontend) and Python (ML backend) for full-stack experience</li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-300"><i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0"></i> Promotes sustainable, holistic farming aligned with traditional Indian knowledge</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- More coming soon -->
+    <div class="mt-10 bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm p-10 text-center reveal">
+        <div class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <i class="fas fa-rocket text-blue-500 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">More Projects Coming Soon</h3>
+        <p class="text-slate-400 max-w-md mx-auto mb-6">Currently working on exciting new data science and ML projects. Follow on GitHub to stay updated!</p>
+        <a href="https://github.com/Tirth18097" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-blue-900/20">
+            <i class="fab fa-github"></i> Follow on GitHub
+        </a>
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-slate-100 dark:border-slate-800 py-10 px-6 bg-white dark:bg-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+            <span class="bg-blue-900 text-white px-3 py-1.5 rounded text-sm font-bold">TM</span>
+            <span class="text-slate-500 text-sm">Tirth Madane &mdash; Aspiring Data Scientist</span>
+        </div>
+        <div class="flex items-center gap-6 text-slate-400 text-base">
+            <a href="https://github.com/Tirth18097" target="_blank" class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://linkedin.com/in/tirth-madane-a9935528b" target="_blank" class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="mailto:madanetirth@gmail.com" class="hover:text-blue-900 dark:hover:text-blue-400 transition"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+        <a href="index.html" class="flex items-center gap-2 text-slate-400 hover:text-blue-600 text-sm font-medium transition">
+            <i class="fas fa-home"></i> Back to Portfolio
+        </a>
+    </div>
+</footer>
+
+<script>
+    // ===== Dark mode toggle =====
+    const btn  = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+
+    // Load saved preference
+    if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    btn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+        icon.classList.toggle('fa-moon', !isDark);
+        icon.classList.toggle('fa-sun', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // ===== Scroll reveal =====
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal:not(.active)').forEach(r => io.observe(r));
+    document.getElementById('filterBar').classList.add('active');
+
+    // ===== Toggle project details =====
+    const projectNames = {
+        'hotel': 'Hotel Revenue Analysis',
+        'vyaas': 'Vyaas - Smart Ayurvedic Crop Advisor'
+    };
+
+    function toggleDetails(id) {
+        const panel = document.getElementById(id + '-details');
+        const icon  = document.getElementById(id + '-icon');
+        const isOpen = panel.classList.contains('open');
+        document.querySelectorAll('.details-panel').forEach(p => p.classList.remove('open'));
+        document.querySelectorAll('[id$="-icon"]').forEach(i => { i.classList.remove('fa-chevron-up'); i.classList.add('fa-chevron-down'); });
+        if (!isOpen) {
+            panel.classList.add('open');
+            icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            // GA4: track project detail view
+            gtag('event', 'view_project_details', {
+                'event_category': 'Projects',
+                'event_label': projectNames[id] || id,
+                'project_id': id
+            });
+        }
+    }
+
+    // ===== Filter =====
+    function filterProjects(tag, clickedBtn) {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active', 'bg-blue-900', 'text-white');
+            b.classList.add('text-slate-600', 'bg-white');
+        });
+        clickedBtn.classList.add('active', 'bg-blue-900', 'text-white');
+        clickedBtn.classList.remove('text-slate-600', 'bg-white');
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.display = (tag === 'all' || card.dataset.tags.includes(tag)) ? '' : 'none';
+        });
+        // GA4: track filter usage
+        if (tag !== 'all') {
+            gtag('event', 'filter_projects', {
+                'event_category': 'Projects',
+                'event_label': tag
+            });
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,5 +1,10 @@
 /* Card Section Styles - Based on Leadership Section Design */
 
+/* Hide empty card sections to prevent blank space gaps */
+.card-section-container:empty {
+    display: none;
+}
+
 .card-section-container {
     padding: 5rem 0;
     background-color: #f8fafc;
