@@ -378,7 +378,7 @@
                             class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
                             onclick="event.stopPropagation(); openPythonSkillsModal();">
                             <i class="fas fa-list text-xs"></i>
-                            See competencies
+                            <span id="see-comp-1">See competencies</span>
                         </button>
                     </div>
 
@@ -392,7 +392,7 @@
                             <span
                                 class="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded uppercase font-bold">Leadership</span>
                         </div>
-                        <h3 class="font-bold text-xl mb-4 text-left dark:text-white">Leadership & Team Management</h3>
+                        <h3 id="skills-leadership-title" class="font-bold text-xl mb-4 text-left dark:text-white">Leadership & Team Management</h3>
                     </div>
                 </div>
 
@@ -413,7 +413,7 @@
                             class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
                             onclick="event.stopPropagation(); openSQLSkillsModal();">
                             <i class="fas fa-list text-xs"></i>
-                            See competencies
+                            <span id="see-comp-2">See competencies</span>
                         </button>
                     </div>
 
@@ -434,7 +434,7 @@
                             class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
                             onclick="event.stopPropagation(); openMLSkillsModal();">
                             <i class="fas fa-list text-xs"></i>
-                            See competencies
+                            <span id="see-comp-3">See competencies</span>
                         </button>
                     </div>
                 </div>
@@ -456,7 +456,7 @@
                             class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
                             onclick="event.stopPropagation(); openPowerBISkillsModal();">
                             <i class="fas fa-list text-xs"></i>
-                            See competencies
+                            <span id="see-comp-4">See competencies</span>
                         </button>
                     </div>
 
@@ -475,7 +475,7 @@
                             class="w-full border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-1.5 rounded text-xs font-medium transition inline-flex items-center justify-center gap-2"
                             onclick="event.stopPropagation(); openTableauSkillsModal();">
                             <i class="fas fa-list text-xs"></i>
-                            See competencies
+                            <span id="see-comp-5">See competencies</span>
                         </button>
                     </div>
                 </div>
@@ -498,9 +498,9 @@
                     <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6"
                         style="background-image: url('robo-club-logo.png'); background-size: cover; background-position: center;">
                     </div>
-                    <h3 class="font-bold text-xl mb-1 dark:text-white">Member - Robo Club</h3>
-                    <p class="text-blue-500 text-sm mb-4">SAKEC Technical Club</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Managed and coordinated
+                    <h3 id="lc1-title" class="font-bold text-xl mb-1 dark:text-white">Member - Robo Club</h3>
+                    <p id="lc1-org" class="text-blue-500 text-sm mb-4">SAKEC Technical Club</p>
+                    <p id="lc1-desc" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Managed and coordinated
                         technical events, workshops, setup, and participant engagement. Contributed to fostering a
                         culture of innovation.</p>
                 </div>
@@ -510,9 +510,9 @@
                     <div class="w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-2xl flex items-center justify-center mb-6"
                         style="background-image: url('nss-logo.png'); background-size: cover; background-position: center;">
                     </div>
-                    <h3 class="font-bold text-xl mb-1 dark:text-white">Volunteer - NSS</h3>
-                    <p class="text-blue-500 text-sm mb-4">National Service Scheme</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Participated in social welfare
+                    <h3 id="lc2-title" class="font-bold text-xl mb-1 dark:text-white">Volunteer - NSS</h3>
+                    <p id="lc2-org" class="text-blue-500 text-sm mb-4">National Service Scheme</p>
+                    <p id="lc2-desc" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Participated in social welfare
                         initiatives, awareness drives, and community development programs. Dedicated to making a
                         positive impact.</p>
                 </div>
@@ -522,9 +522,9 @@
                     <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl flex items-center justify-center mb-6"
                         style="background-image: url('iei-logo.png'); background-size: cover; background-position: center;">
                     </div>
-                    <h3 class="font-bold text-xl mb-1 dark:text-white">Co-Head of PR & Marketing</h3>
-                    <p class="text-blue-500 text-sm mb-4">Institution of Engineers India (IEI)</p>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Led event promotions and
+                    <h3 id="lc3-title" class="font-bold text-xl mb-1 dark:text-white">Co-Head of PR & Marketing</h3>
+                    <p id="lc3-org" class="text-blue-500 text-sm mb-4">Institution of Engineers India (IEI)</p>
+                    <p id="lc3-desc" class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Led event promotions and
                         strengthened student participation through strategic outreach and managed communications.</p>
                 </div>
             </div>
@@ -653,9 +653,9 @@
                         <img src="powerbi-logo.png" alt="Power BI" class="w-full h-full object-contain">
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-[10px] font-bold uppercase text-yellow-600 dark:text-yellow-400 mb-1">Data Analytics</p>
-                        <h3 class="font-bold text-slate-800 dark:text-white text-base">Hotel Revenue Analysis</h3>
-                        <p class="text-slate-400 text-sm mt-1">Power BI · DAX · Star Schema</p>
+                        <p id="proj1-cat" class="text-[10px] font-bold uppercase text-yellow-600 dark:text-yellow-400 mb-1">Data Analytics</p>
+                        <h3 id="proj1-title" class="font-bold text-slate-800 dark:text-white text-base">Hotel Revenue Analysis</h3>
+                        <p id="proj1-tech" class="text-slate-400 text-sm mt-1">Power BI · DAX · Star Schema</p>
                     </div>
                     <i class="fas fa-arrow-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0"></i>
                 </a>
@@ -666,9 +666,9 @@
                         <i class="fas fa-leaf text-green-500 text-xl"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-[10px] font-bold uppercase text-green-600 dark:text-green-400 mb-1">AI / ML</p>
-                        <h3 class="font-bold text-slate-800 dark:text-white text-base">&#127807; Vyaas — Smart Crop Advisor</h3>
-                        <p class="text-slate-400 text-sm mt-1">Python · JavaScript · Machine Learning</p>
+                        <p id="proj2-cat" class="text-[10px] font-bold uppercase text-green-600 dark:text-green-400 mb-1">AI / ML</p>
+                        <h3 id="proj2-title" class="font-bold text-slate-800 dark:text-white text-base">&#127807; Vyaas — Smart Crop Advisor</h3>
+                        <p id="proj2-tech" class="text-slate-400 text-sm mt-1">Python · JavaScript · Machine Learning</p>
                     </div>
                     <i class="fas fa-arrow-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0"></i>
                 </a>
@@ -678,7 +678,7 @@
             <a href="projects.html"
                class="inline-flex items-center gap-3 bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg shadow-blue-900/20 hover:-translate-y-0.5">
                 <i class="fas fa-folder-open"></i>
-                View All Projects
+                <span id="proj-view-all">View All Projects</span>
                 <i class="fas fa-arrow-right text-sm"></i>
             </a>
         </div>
@@ -964,167 +964,159 @@
     </script>
 
     <script>
-        // ========== INTERNSHIP SECTION ==========
-        const internshipSection = new CardSection('internship', {
-            title: 'Internships',
-            highlightWords: ['Internships'],
-            cards: [
-                {
-                    logo: 'infosys-logo.png',
-                    iconColor: 'blue',
-                    title: 'Data Visualization Intern',
-                    organization: 'Infosys Springboard',
-                    description: 'Your description here. Replace with your actual internship details and achievements.',
-                    modal: "openImageModal('infosys-cert.png', 'Infosys Springboard Virtual Internship 6.0')"
-                },
-                {
-                    logo: 'tbi-logo.png',
-                    title: 'Intern',
-                    organization: 'SAKEC - Technology Business Incubator',
-                    description: 'Completed internship as part of Solar Decathlon India 2024-25 Competition with Team Aavishkar.',
-                    modal: 'openTBIModal()'
-                }
-            ]
-        });
+    // ===== TRANSLATABLE CARD SECTION DATA =====
+    const cardSectionData = {
+        en: {
+            internship: {
+                title: 'Internships', highlightWords: ['Internships'],
+                cards: [
+                    { logo:'infosys-logo.png', iconColor:'blue', title:'Data Visualization Intern', organization:'Infosys Springboard', description:'Completed virtual internship focused on data visualization techniques and tools.', modal:"openImageModal('infosys-cert.png','Infosys Springboard Virtual Internship 6.0')" },
+                    { logo:'tbi-logo.png', title:'Intern', organization:'SAKEC - Technology Business Incubator', description:'Completed internship as part of Solar Decathlon India 2024-25 Competition with Team Aavishkar.', modal:'openTBIModal()' }
+                ]
+            },
+            workshop: {
+                title: 'Hackathon & Workshop Training Programs', highlightWords: ['Hackathon','Training'],
+                subtitle: 'Continuous learning through workshops and training programs',
+                cards: [
+                    { icon:'fas fa-code', iconColor:'red', title:'Participated in 24-Hour Hackathon – SCOE, Navi Mumbai', organization:'Saraswati College of Engineering & Technology | April 2024', description:'First hackathon experience focusing on web development and Smart Parking Management System', modal:'openHackathonModal()' },
+                    { logo:'placify-logo.png', iconColor:'white', title:'Python', organization:'Placify Technologies Pvt. Ltd.', description:'Completed intensive training on Python programming', modal:'openPythonModal()' },
+                    { logo:'mitu-logo.png', title:'SQL', organization:'MITU Skillologies, Pune', description:'Completed comprehensive training in SQL and database management. Developed a Python (Tkinter)–based application integrated with a database as part of the QueryCraft program.', modal:'openMituSQLModal()' }
+                ]
+            },
+            certification: {
+                title: 'Certifications', highlightWords: ['Certifications'],
+                subtitle: 'Professional certifications demonstrating expertise and commitment',
+                cards: [
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'AWS Certified Cloud Practitioner', organization:'Amazon Web Services', description:'Foundational understanding of AWS Cloud concepts and services.', previewImage:'aws-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'GenAI Powered Data Analytics', organization:'Tata Group & Forage', description:'AI-driven financial analytics simulation: EDA, predictive modeling for customer risk assessment, and ethical AI strategy.', previewImage:'tata-genai-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'Google AI-ML Virtual Internship (Jul–Sep 2025)', organization:'Google', description:'Professional certification in building ML models with TensorFlow.', previewImage:'google-aiml-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'Programming Essentials in C++ & OOP', organization:'Cisco Networking Academy', description:'Certification demonstrating expertise in C++ programming and object-oriented concepts.', previewImage:'cisco-cpp-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'Programming Essentials in C', organization:'Cisco Networking Academy', description:'Certification demonstrating expertise in C programming fundamentals and language techniques.', previewImage:'cisco-c-cert.png' }
+                ]
+            },
+            membership: {
+                label: 'Professional Body Membership', highlightWords: ['Professional','Membership'],
+                cards: [
+                    { icon:'fas fa-users', iconColor:'green', title:'IEEE Member', organization:'Institute of Electrical and Electronics Engineers', description:'Active member contributing to technology advancement and innovation.' },
+                    { icon:'fas fa-handshake', iconColor:'purple', title:'ACM Membership', organization:'Association for Computing Machinery', description:'Engaged in computing research and professional development activities.' },
+                    { icon:'fas fa-network-wired', iconColor:'blue', title:'Data Science Society', organization:'Professional Network', description:'Participating in data science community events and knowledge sharing.' }
+                ]
+            },
+            roles: {
+                label: 'Leadership Roles', highlightWords: ['Leadership'],
+                cards: [
+                    { icon:'fas fa-user-tie', iconColor:'blue', title:'Team Lead', organization:'College Project', description:'Led a team of 5 members in developing an innovative software solution.' },
+                    { icon:'fas fa-trophy', iconColor:'yellow', title:'Event Coordinator', organization:'Technical Fest', description:'Organized and coordinated technical events with 500+ participants.' },
+                    { icon:'fas fa-lightbulb', iconColor:'red', title:'Innovation Head', organization:'Student Council', description:'Spearheaded innovation initiatives and hackathon events for students.' }
+                ]
+            }
+        },
+        hi: {
+            internship: {
+                title: 'इंटर्नशिप', highlightWords: ['इंटर्नशिप'],
+                cards: [
+                    { logo:'infosys-logo.png', iconColor:'blue', title:'डेटा विज़ुअलाइज़ेशन इंटर्न', organization:'इन्फोसिस स्प्रिंगबोर्ड', description:'डेटा विज़ुअलाइज़ेशन तकनीकों और टूल्स पर केंद्रित वर्चुअल इंटर्नशिप पूरी की।', modal:"openImageModal('infosys-cert.png','Infosys Springboard Virtual Internship 6.0')" },
+                    { logo:'tbi-logo.png', title:'इंटर्न', organization:'SAKEC - प्रौद्योगिकी व्यवसाय इनक्यूबेटर', description:'टीम आविष्कार के साथ सोलर डेकाथलॉन इंडिया 2024-25 प्रतियोगिता के हिस्से के रूप में इंटर्नशिप पूरी की।', modal:'openTBIModal()' }
+                ]
+            },
+            workshop: {
+                title: 'हैकाथॉन और कार्यशाला प्रशिक्षण कार्यक्रम', highlightWords: ['हैकाथॉन','प्रशिक्षण'],
+                subtitle: 'कार्यशालाओं और प्रशिक्षण कार्यक्रमों के माध्यम से निरंतर सीखना',
+                cards: [
+                    { icon:'fas fa-code', iconColor:'red', title:'24-घंटे हैकाथॉन – SCOE, नवी मुंबई', organization:'सरस्वती कॉलेज ऑफ इंजीनियरिंग | अप्रैल 2024', description:'वेब डेवलपमेंट और स्मार्ट पार्किंग मैनेजमेंट सिस्टम पर केंद्रित पहला हैकाथॉन अनुभव।', modal:'openHackathonModal()' },
+                    { logo:'placify-logo.png', iconColor:'white', title:'Python प्रशिक्षण', organization:'Placify Technologies Pvt. Ltd.', description:'Python प्रोग्रामिंग पर गहन प्रशिक्षण पूरा किया।', modal:'openPythonModal()' },
+                    { logo:'mitu-logo.png', title:'SQL प्रशिक्षण', organization:'MITU Skillologies, पुणे', description:'SQL और डेटाबेस प्रबंधन में व्यापक प्रशिक्षण। QueryCraft कार्यक्रम के तहत Python (Tkinter) आधारित एप्लिकेशन विकसित की।', modal:'openMituSQLModal()' }
+                ]
+            },
+            certification: {
+                title: 'प्रमाणपत्र', highlightWords: ['प्रमाणपत्र'],
+                subtitle: 'विशेषज्ञता और प्रतिबद्धता दर्शाने वाले पेशेवर प्रमाणपत्र',
+                cards: [
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'AWS सर्टिफाइड क्लाउड प्रैक्टिशनर', organization:'Amazon Web Services', description:'AWS क्लाउड अवधारणाओं और सेवाओं की बुनियादी समझ।', previewImage:'aws-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'GenAI पावर्ड डेटा एनालिटिक्स', organization:'Tata Group & Forage', description:'AI-आधारित वित्तीय विश्लेषण सिमुलेशन: EDA, पूर्वानुमान मॉडलिंग और नैतिक AI रणनीति।', previewImage:'tata-genai-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'Google AI-ML वर्चुअल इंटर्नशिप', organization:'Google', description:'TensorFlow के साथ ML मॉडल बनाने में पेशेवर प्रमाणपत्र।', previewImage:'google-aiml-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'C++ प्रोग्रामिंग और OOP मूल बातें', organization:'Cisco Networking Academy', description:'C++ प्रोग्रामिंग और ऑब्जेक्ट-ओरिएंटेड अवधारणाओं में विशेषज्ञता।', previewImage:'cisco-cpp-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'C प्रोग्रामिंग मूल बातें', organization:'Cisco Networking Academy', description:'C प्रोग्रामिंग की बुनियादी बातों और तकनीकों में विशेषज्ञता।', previewImage:'cisco-c-cert.png' }
+                ]
+            },
+            membership: {
+                label: 'पेशेवर संस्था सदस्यता', highlightWords: ['पेशेवर','सदस्यता'],
+                cards: [
+                    { icon:'fas fa-users', iconColor:'green', title:'IEEE सदस्य', organization:'इंस्टीट्यूट ऑफ इलेक्ट्रिकल एंड इलेक्ट्रॉनिक्स इंजीनियर्स', description:'प्रौद्योगिकी प्रगति और नवाचार में योगदान देने वाले सक्रिय सदस्य।' },
+                    { icon:'fas fa-handshake', iconColor:'purple', title:'ACM सदस्यता', organization:'एसोसिएशन फॉर कंप्यूटिंग मशीनरी', description:'कंप्यूटिंग अनुसंधान और पेशेवर विकास गतिविधियों में संलग्न।' },
+                    { icon:'fas fa-network-wired', iconColor:'blue', title:'डेटा साइंस सोसाइटी', organization:'पेशेवर नेटवर्क', description:'डेटा साइंस समुदाय के कार्यक्रमों और ज्ञान साझाकरण में भागीदारी।' }
+                ]
+            },
+            roles: {
+                label: 'नेतृत्व भूमिकाएं', highlightWords: ['नेतृत्व'],
+                cards: [
+                    { icon:'fas fa-user-tie', iconColor:'blue', title:'टीम लीड', organization:'कॉलेज प्रोजेक्ट', description:'एक अभिनव सॉफ्टवेयर समाधान विकसित करने में 5 सदस्यों की टीम का नेतृत्व किया।' },
+                    { icon:'fas fa-trophy', iconColor:'yellow', title:'इवेंट कोऑर्डिनेटर', organization:'तकनीकी उत्सव', description:'500+ प्रतिभागियों के साथ तकनीकी कार्यक्रमों का आयोजन और समन्वय किया।' },
+                    { icon:'fas fa-lightbulb', iconColor:'red', title:'इनोवेशन हेड', organization:'छात्र परिषद', description:'छात्रों के लिए नवाचार पहल और हैकाथॉन कार्यक्रमों का नेतृत्व किया।' }
+                ]
+            }
+        },
+        mr: {
+            internship: {
+                title: 'इंटर्नशिप', highlightWords: ['इंटर्नशिप'],
+                cards: [
+                    { logo:'infosys-logo.png', iconColor:'blue', title:'डेटा व्हिज्युअलायझेशन इंटर्न', organization:'इन्फोसिस स्प्रिंगबोर्ड', description:'डेटा व्हिज्युअलायझेशन तंत्र आणि साधनांवर केंद्रित व्हर्च्युअल इंटर्नशिप पूर्ण केली।', modal:"openImageModal('infosys-cert.png','Infosys Springboard Virtual Internship 6.0')" },
+                    { logo:'tbi-logo.png', title:'इंटर्न', organization:'SAKEC - तंत्रज्ञान व्यवसाय इनक्युबेटर', description:'टीम आविष्कारसह सोलर डेकाथलॉन इंडिया 2024-25 स्पर्धेचा भाग म्हणून इंटर्नशिप पूर्ण केली।', modal:'openTBIModal()' }
+                ]
+            },
+            workshop: {
+                title: 'हॅकाथॉन आणि कार्यशाळा प्रशिक्षण कार्यक्रम', highlightWords: ['हॅकाथॉन','प्रशिक्षण'],
+                subtitle: 'कार्यशाळा आणि प्रशिक्षण कार्यक्रमांद्वारे सतत शिकणे',
+                cards: [
+                    { icon:'fas fa-code', iconColor:'red', title:'24-तास हॅकाथॉन – SCOE, नवी मुंबई', organization:'सरस्वती कॉलेज ऑफ इंजिनिअरिंग | एप्रिल 2024', description:'वेब डेव्हलपमेंट आणि स्मार्ट पार्किंग मॅनेजमेंट सिस्टमवर केंद्रित पहिला हॅकाथॉन अनुभव।', modal:'openHackathonModal()' },
+                    { logo:'placify-logo.png', iconColor:'white', title:'Python प्रशिक्षण', organization:'Placify Technologies Pvt. Ltd.', description:'Python प्रोग्रामिंगवर सखोल प्रशिक्षण पूर्ण केले।', modal:'openPythonModal()' },
+                    { logo:'mitu-logo.png', title:'SQL प्रशिक्षण', organization:'MITU Skillologies, पुणे', description:'SQL आणि डेटाबेस व्यवस्थापनात सर्वसमावेशक प्रशिक्षण. QueryCraft कार्यक्रमांतर्गत Python (Tkinter) आधारित अनुप्रयोग विकसित केला।', modal:'openMituSQLModal()' }
+                ]
+            },
+            certification: {
+                title: 'प्रमाणपत्रे', highlightWords: ['प्रमाणपत्रे'],
+                subtitle: 'कौशल्य आणि वचनबद्धता दर्शविणारी व्यावसायिक प्रमाणपत्रे',
+                cards: [
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'AWS सर्टिफाइड क्लाउड प्रॅक्टिशनर', organization:'Amazon Web Services', description:'AWS क्लाउड संकल्पना आणि सेवांची मूलभूत माहिती।', previewImage:'aws-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'GenAI पॉवर्ड डेटा अॅनालिटिक्स', organization:'Tata Group & Forage', description:'AI-चालित आर्थिक विश्लेषण सिम्युलेशन: EDA, भविष्यवाणी मॉडेलिंग आणि नैतिक AI धोरण।', previewImage:'tata-genai-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'Google AI-ML व्हर्च्युअल इंटर्नशिप', organization:'Google', description:'TensorFlow सह ML मॉडेल तयार करण्यातील व्यावसायिक प्रमाणपत्र।', previewImage:'google-aiml-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'C++ प्रोग्रामिंग आणि OOP मूलभूत गोष्टी', organization:'Cisco Networking Academy', description:'C++ प्रोग्रामिंग आणि ऑब्जेक्ट-ओरिएंटेड संकल्पनांमधील कौशल्य।', previewImage:'cisco-cpp-cert.png' },
+                    { icon:'fas fa-certificate', iconColor:'blue', title:'C प्रोग्रामिंग मूलभूत गोष्टी', organization:'Cisco Networking Academy', description:'C प्रोग्रामिंगची मूलभूत तत्त्वे आणि तंत्रांमधील कौशल्य।', previewImage:'cisco-c-cert.png' }
+                ]
+            },
+            membership: {
+                label: 'व्यावसायिक संस्था सदस्यत्व', highlightWords: ['व्यावसायिक','सदस्यत्व'],
+                cards: [
+                    { icon:'fas fa-users', iconColor:'green', title:'IEEE सदस्य', organization:'इन्स्टिट्यूट ऑफ इलेक्ट्रिकल अँड इलेक्ट्रॉनिक्स इंजिनिअर्स', description:'तंत्रज्ञान प्रगती आणि नवकल्पनामध्ये योगदान देणारे सक्रिय सदस्य।' },
+                    { icon:'fas fa-handshake', iconColor:'purple', title:'ACM सदस्यत्व', organization:'असोसिएशन फॉर कंप्युटिंग मशिनरी', description:'संगणन संशोधन आणि व्यावसायिक विकास उपक्रमांमध्ये सहभागी।' },
+                    { icon:'fas fa-network-wired', iconColor:'blue', title:'डेटा सायन्स सोसायटी', organization:'व्यावसायिक नेटवर्क', description:'डेटा सायन्स समुदाय कार्यक्रम आणि ज्ञान सामायिकरणात सहभाग।' }
+                ]
+            },
+            roles: {
+                label: 'नेतृत्व भूमिका', highlightWords: ['नेतृत्व'],
+                cards: [
+                    { icon:'fas fa-user-tie', iconColor:'blue', title:'टीम लीड', organization:'महाविद्यालयीन प्रकल्प', description:'एक नाविन्यपूर्ण सॉफ्टवेअर उपाय विकसित करण्यासाठी 5 सदस्यांच्या टीमचे नेतृत्व केले।' },
+                    { icon:'fas fa-trophy', iconColor:'yellow', title:'इव्हेंट कोऑर्डिनेटर', organization:'तांत्रिक उत्सव', description:'500+ सहभागींसह तांत्रिक कार्यक्रमांचे आयोजन आणि समन्वय केले।' },
+                    { icon:'fas fa-lightbulb', iconColor:'red', title:'इनोव्हेशन हेड', organization:'विद्यार्थी परिषद', description:'विद्यार्थ्यांसाठी नवकल्पना उपक्रम आणि हॅकाथॉन कार्यक्रमांचे नेतृत्व केले।' }
+                ]
+            }
+        }
+    };
 
-        // ========== WORKSHOP/TRAINING SECTION ==========
-        const workshopSection = new CardSection('workshop', {
-            title: 'Hackathon & Workshop Training Programs',
-            highlightWords: ['Hackathon', 'Training'],
-            subtitle: 'Continuous learning through workshops and training programs',
-            cards: [
-                {
-                    icon: 'fas fa-code',
-                    iconColor: 'red',
-                    title: 'Participated in 24-Hour Hackathon – SCOE, Navi Mumbai',
-                    organization: 'Saraswati College of Engineering & Technology | April 2024',
-                    description: 'First hackathon experience focusing on web development and Smart Parking Management System',
-                    modal: 'openHackathonModal()'
-                },
-                {
-                    logo: 'placify-logo.png',
-                    iconColor: 'white',
-                    title: 'Python',
-                    organization: 'Placify Technologies Pvt. Ltd.',
-                    description: 'Completed intensive training on Python programming',
-                    modal: 'openPythonModal()'
-                },
-                {
-                    logo: 'mitu-logo.png',
-                    title: 'SQL',
-                    organization: 'MITU Skillologies, Pune',
-                    description: 'Completed comprehensive training in SQL and database management at Shah & Anchor Kutchhi Engineering College in association with MITU Skillologies, Pune. As part of the QueryCraft: The Art of Database Engineering program, I developed a Python (Tkinter)–based application integrated with a database, gaining hands-on experience in real-world database connectivity and operations.',
-                    modal: 'openMituSQLModal()'
-                }
-            ]
-        });
+    // Holds CardSection instances so we can re-render
+    let cardSections = {};
 
-        // ========== CERTIFICATION SECTION ==========
-        const certificationSection = new CardSection('certification', {
-            title: 'Certifications',
-            highlightWords: ['Certifications'],
-            subtitle: 'Professional certifications demonstrating expertise and commitment',
-            cards: [
-                {
-                    icon: 'fas fa-certificate',
-                    iconColor: 'blue',
-                    title: 'AWS Certified Cloud Practitioner',
-                    organization: 'Amazon Web Services',
-                    description: 'Foundational understanding of AWS Cloud concepts and services.',
-                    previewImage: 'aws-cert.png'
-                },
-                {
-                    icon: 'fas fa-certificate',
-                    iconColor: 'blue',
-                    title: 'GenAI Powered Data Analytics',
-                    organization: ' Tata Group & Forage',
-                    description: 'AI-driven financial analytics simulation: conducted exploratory data analysis, designed predictive modeling for customer risk assessment, and developed ethical AI collections strategy.',
-                    previewImage: 'tata-genai-cert.png'
-                },
-                {
-                    icon: 'fas fa-certificate',
-                    iconColor: 'blue',
-                    title: 'Google AI-ML Virtual Internship (Jul to Sep 2025)',
-                    organization: 'Google',
-                    description: 'Professional certification in building ML models with TensorFlow.',
-                    previewImage: 'google-aiml-cert.png'
-                },
-                {
-                    icon: 'fas fa-certificate',
-                    iconColor: 'blue',
-                    title: 'Programming Essentials in C++ & Fundamentals of Object Oriented Programming',
-                    organization: 'Cisco Networking Academy',
-                    description: 'Professional certification demonstrating expertise in C++ programming and OOP concepts.',
-                    previewImage: 'cisco-cpp-cert.png'
-                },
-                {
-                    icon: 'fas fa-certificate',
-                    iconColor: 'blue',
-                    title: 'Programming Essentials in C',
-                    organization: 'Cisco Networking Academy',
-                    description: 'Professional certification demonstrating expertise in C programming fundamentals and language techniques.',
-                    previewImage: 'cisco-c-cert.png'
-                }
-            ]
+    function renderCardSections(lang) {
+        const data = cardSectionData[lang] || cardSectionData.en;
+        ['internship','workshop','certification','membership','roles'].forEach(id => {
+            if (data[id]) {
+                cardSections[id] = new CardSection(id, data[id]);
+            }
         });
+    }
 
-        // ========== PROFESSIONAL MEMBERSHIP SECTION ==========
-        const membershipSection = new CardSection('membership', {
-            label: 'Professional Body Membership',
-            highlightWords: ['Professional', 'Membership'],
-            cards: [
-                {
-                    icon: 'fas fa-users',
-                    iconColor: 'green',
-                    title: 'IEEE Member',
-                    organization: 'Institute of Electrical and Electronics Engineers',
-                    description: 'Active member contributing to technology advancement and innovation.'
-                },
-                {
-                    icon: 'fas fa-handshake',
-                    iconColor: 'purple',
-                    title: 'ACM Membership',
-                    organization: 'Association for Computing Machinery',
-                    description: 'Engaged in computing research and professional development activities.'
-                },
-                {
-                    icon: 'fas fa-network-wired',
-                    iconColor: 'blue',
-                    title: 'Data Science Society',
-                    organization: 'Professional Network',
-                    description: 'Participating in data science community events and knowledge sharing.'
-                }
-            ]
-        });
-
-        // ========== ROLES SECTION ==========
-        const rolesSection = new CardSection('roles', {
-            label: 'Leadership Roles',
-            highlightWords: ['Leadership'],
-            cards: [
-                {
-                    icon: 'fas fa-user-tie',
-                    iconColor: 'blue',
-                    title: 'Team Lead',
-                    organization: 'College Project',
-                    description: 'Led a team of 5 members in developing an innovative software solution.'
-                },
-                {
-                    icon: 'fas fa-trophy',
-                    iconColor: 'yellow',
-                    title: 'Event Coordinator',
-                    organization: 'Technical Fest',
-                    description: 'Organized and coordinated technical events with 500+ participants.'
-                },
-                {
-                    icon: 'fas fa-lightbulb',
-                    iconColor: 'red',
-                    title: 'Innovation Head',
-                    organization: 'Student Council',
-                    description: 'Spearheaded innovation initiatives and hackathon events for students.'
-                }
-            ]
-        });
+    // Initial render in English
+    renderCardSections('en');
     </script>
     <script>
         const btn = document.getElementById('theme-toggle');
@@ -2240,7 +2232,15 @@ const translations = {
         'achievements-label':'Recognition','achievements-heading':'Notable <span class="text-blue-500">Achievements</span>',
         'experience-label':'MY JOURNEY','experience-heading':'Professional <span class="text-blue-500">Experience</span>','experience-sub':'A comprehensive overview of internships, training, certifications, and professional engagements',
         'projects-label':'Portfolio','projects-heading':'My <span class="text-blue-500">Projects</span>','projects-sub':'Data science, machine learning, and full-stack projects built to solve real-world problems.',
-        'contact-label':'Get in touch','contact-heading':'Let\'s <span class="text-blue-500">Connect</span>','lang-label':'EN'
+        'contact-label':'Get in touch','contact-heading':'Let\'s <span class="text-blue-500">Connect</span>','lang-label':'EN',
+        'skills-leadership-title':'Leadership &amp; Team Management',
+        'see-comp-1':'See competencies','see-comp-2':'See competencies','see-comp-3':'See competencies','see-comp-4':'See competencies','see-comp-5':'See competencies',
+        'lc1-title':'Member - Robo Club','lc1-org':'SAKEC Technical Club','lc1-desc':'Managed and coordinated technical events, workshops, setup, and participant engagement. Contributed to fostering a culture of innovation.',
+        'lc2-title':'Volunteer - NSS','lc2-org':'National Service Scheme','lc2-desc':'Participated in social welfare initiatives, awareness drives, and community development programs. Dedicated to making a positive impact.',
+        'lc3-title':'Co-Head of PR &amp; Marketing','lc3-org':'Institution of Engineers India (IEI)','lc3-desc':'Led event promotions and strengthened student participation through strategic outreach and managed communications.',
+        'proj1-cat':'Data Analytics','proj1-title':'Hotel Revenue Analysis','proj1-tech':'Power BI · DAX · Star Schema',
+        'proj2-cat':'AI / ML','proj2-title':'🌿 Vyaas — Smart Crop Advisor','proj2-tech':'Python · JavaScript · Machine Learning',
+        'proj-view-all':'View All Projects'
     },
     hi: {
         'nav-home':'होम','nav-about':'परिचय','nav-skills':'कौशल','nav-experience':'अनुभव','nav-projects':'परियोजनाएं','nav-contact':'संपर्क','nav-letstalk':'बात करें',
@@ -2255,7 +2255,15 @@ const translations = {
         'achievements-label':'पहचान','achievements-heading':'उल्लेखनीय <span class="text-blue-500">उपलब्धियाँ</span>',
         'experience-label':'मेरी यात्रा','experience-heading':'व्यावसायिक <span class="text-blue-500">अनुभव</span>','experience-sub':'इंटर्नशिप, प्रशिक्षण, प्रमाणपत्र और पेशेवर जुड़ाव का व्यापक अवलोकन',
         'projects-label':'पोर्टफोलियो','projects-heading':'मेरे <span class="text-blue-500">प्रोजेक्ट्स</span>','projects-sub':'वास्तविक दुनिया की समस्याओं को हल करने के लिए बनाए गए डेटा साइंस, ML और फुल-स्टैक प्रोजेक्ट्स।',
-        'contact-label':'संपर्क करें','contact-heading':'जुड़े <span class="text-blue-500">रहें</span>','lang-label':'हि'
+        'contact-label':'संपर्क करें','contact-heading':'जुड़े <span class="text-blue-500">रहें</span>','lang-label':'हि',
+        'skills-leadership-title':'नेतृत्व एवं टीम प्रबंधन',
+        'see-comp-1':'क्षमताएं देखें','see-comp-2':'क्षमताएं देखें','see-comp-3':'क्षमताएं देखें','see-comp-4':'क्षमताएं देखें','see-comp-5':'क्षमताएं देखें',
+        'lc1-title':'सदस्य - रोबो क्लब','lc1-org':'SAKEC तकनीकी क्लब','lc1-desc':'तकनीकी कार्यक्रमों, कार्यशालाओं और प्रतिभागी जुड़ाव का प्रबंधन किया। नवाचार की संस्कृति को बढ़ावा देने में योगदान।',
+        'lc2-title':'स्वयंसेवक - NSS','lc2-org':'राष्ट्रीय सेवा योजना','lc2-desc':'सामाजिक कल्याण पहल, जागरूकता अभियान और सामुदायिक विकास कार्यक्रमों में भाग लिया।',
+        'lc3-title':'PR और मार्केटिंग के सह-प्रमुख','lc3-org':'इंस्टीट्यूशन ऑफ इंजीनियर्स इंडिया (IEI)','lc3-desc':'रणनीतिक आउटरीच के माध्यम से इवेंट प्रमोशन और छात्र भागीदारी को मजबूत किया।',
+        'proj1-cat':'डेटा एनालिटिक्स','proj1-title':'होटल राजस्व विश्लेषण','proj1-tech':'Power BI · DAX · Star Schema',
+        'proj2-cat':'AI / ML','proj2-title':'🌿 व्यास — स्मार्ट फसल सलाहकार','proj2-tech':'Python · JavaScript · Machine Learning',
+        'proj-view-all':'सभी प्रोजेक्ट देखें'
     },
     mr: {
         'nav-home':'होम','nav-about':'माझ्याबद्दल','nav-skills':'कौशल्ये','nav-experience':'अनुभव','nav-projects':'प्रकल्प','nav-contact':'संपर्क','nav-letstalk':'बोलूया',
@@ -2270,18 +2278,28 @@ const translations = {
         'achievements-label':'ओळख','achievements-heading':'उल्लेखनीय <span class="text-blue-500">यश</span>',
         'experience-label':'माझा प्रवास','experience-heading':'व्यावसायिक <span class="text-blue-500">अनुभव</span>','experience-sub':'इंटर्नशिप, प्रशिक्षण, प्रमाणपत्रे आणि व्यावसायिक सहभागाचे सर्वसमावेशक विहंगावलोकन',
         'projects-label':'पोर्टफोलिओ','projects-heading':'माझे <span class="text-blue-500">प्रकल्प</span>','projects-sub':'वास्तविक जगातील समस्या सोडवण्यासाठी तयार केलेले डेटा सायन्स, ML आणि फुल-स्टॅक प्रकल्प.',
-        'contact-label':'संपर्कात राहा','contact-heading':'जोडूया <span class="text-blue-500">याला</span>','lang-label':'म'
+        'contact-label':'संपर्कात राहा','contact-heading':'जोडूया <span class="text-blue-500">याला</span>','lang-label':'म',
+        'skills-leadership-title':'नेतृत्व आणि टीम व्यवस्थापन',
+        'see-comp-1':'क्षमता पाहा','see-comp-2':'क्षमता पाहा','see-comp-3':'क्षमता पाहा','see-comp-4':'क्षमता पाहा','see-comp-5':'क्षमता पाहा',
+        'lc1-title':'सदस्य - रोबो क्लब','lc1-org':'SAKEC तांत्रिक क्लब','lc1-desc':'तांत्रिक कार्यक्रम, कार्यशाळा आणि सहभागी सहभागाचे व्यवस्थापन केले. नवकल्पनेची संस्कृती वाढवण्यात योगदान दिले.',
+        'lc2-title':'स्वयंसेवक - NSS','lc2-org':'राष्ट्रीय सेवा योजना','lc2-desc':'सामाजिक कल्याण उपक्रम, जनजागृती मोहिमा आणि सामुदायिक विकास कार्यक्रमांमध्ये सहभागी झालो.',
+        'lc3-title':'PR आणि मार्केटिंगचे सह-प्रमुख','lc3-org':'इन्स्टिट्यूशन ऑफ इंजिनिअर्स इंडिया (IEI)','lc3-desc':'धोरणात्मक आउटरीचद्वारे इव्हेंट प्रमोशन आणि विद्यार्थी सहभाग मजबूत केला.',
+        'proj1-cat':'डेटा अॅनालिटिक्स','proj1-title':'हॉटेल महसूल विश्लेषण','proj1-tech':'Power BI · DAX · Star Schema',
+        'proj2-cat':'AI / ML','proj2-title':'🌿 व्यास — स्मार्ट पीक सल्लागार','proj2-tech':'Python · JavaScript · Machine Learning',
+        'proj-view-all':'सर्व प्रकल्प पाहा'
     }
 };
 
 function applyLang(lang, trackEvent) {
     localStorage.setItem('lang', lang);
     const t = translations[lang];
-    // Update all registered elements
+    // Update static text elements
     Object.keys(t).forEach(id => {
         const el = document.getElementById(id);
         if (el) el.innerHTML = t[id];
     });
+    // Re-render card sections in selected language
+    if (typeof renderCardSections === 'function') renderCardSections(lang);
     // Update dropdown active state
     document.querySelectorAll('#lang-dropdown button').forEach(btn => {
         btn.classList.remove('bg-blue-50', 'dark:bg-slate-700', 'font-bold');
@@ -2310,9 +2328,9 @@ document.addEventListener('click', function(e) {
     const w = document.getElementById('lang-wrapper');
     if (w && !w.contains(e.target)) document.getElementById('lang-dropdown').classList.add('hidden');
 });
-// Apply saved language after full page load (so card sections are rendered)
+// Always default to English on every page load (no saved preference)
 window.addEventListener('load', function() {
-    applyLang(localStorage.getItem('lang') || 'en', false);
+    applyLang('en', false);
 });
 </script>
 
