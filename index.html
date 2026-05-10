@@ -182,21 +182,35 @@
                 <span class="hidden sm:inline dark:text-white">Tirth Madane</span>
             </div>
             <div class="hidden md:flex space-x-10 text-base font-medium text-slate-600 dark:text-slate-300">
-                <a href="#home" class="hover:text-blue-600 transition">Home</a>
-                <a href="#about" class="hover:text-blue-600 transition">About</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-                <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
-                <a href="projects.html" class="hover:text-blue-600 transition">Projects</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+                <a id="nav-home" href="#home" class="hover:text-blue-600 transition">Home</a>
+                <a id="nav-about" href="#about" class="hover:text-blue-600 transition">About</a>
+                <a id="nav-skills" href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a id="nav-experience" href="#experience" class="hover:text-blue-600 transition">Experience</a>
+                <a id="nav-projects" href="projects.html" class="hover:text-blue-600 transition">Projects</a>
+                <a id="nav-contact" href="#contact" class="hover:text-blue-600 transition">Contact</a>
             </div>
             <div class="flex items-center gap-4">
                 <button id="theme-toggle"
                     class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400">
                     <i id="theme-toggle-icon" class="fas fa-moon text-base"></i>
                 </button>
-                <a href="#contact"
-                    class="bg-blue-900 text-white px-7 py-3 rounded-full text-base font-semibold hover:bg-blue-800 transition">Let's
-                    Talk</a>
+                <!-- Language Selector -->
+                <div class="relative" id="lang-wrapper">
+                    <button id="lang-btn" onclick="toggleLangMenu()"
+                        class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center gap-1 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <i class="fas fa-globe text-base"></i>
+                        <span id="lang-label">EN</span>
+                        <i class="fas fa-chevron-down text-[10px]"></i>
+                    </button>
+                    <div id="lang-dropdown"
+                        class="hidden absolute right-0 top-12 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-50 w-36 overflow-hidden">
+                        <button onclick="setLang('en')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 flex items-center gap-2 font-medium transition">🇬🇧 English</button>
+                        <button onclick="setLang('hi')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 flex items-center gap-2 font-medium transition">🇮🇳 हिन्दी</button>
+                        <button onclick="setLang('mr')" class="w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 flex items-center gap-2 font-medium transition">🟠 मराठी</button>
+                    </div>
+                </div>
+                <a id="nav-letstalk" href="#contact"
+                    class="bg-blue-900 text-white px-7 py-3 rounded-full text-base font-semibold hover:bg-blue-800 transition">Let's Talk</a>
             </div>
         </div>
     </nav>
@@ -204,21 +218,21 @@
     <section id="home" class="pt-32 pb-20 hero-pattern min-h-screen flex items-center w-full">
         <div class="w-full px-8 md:px-16 lg:px-28 xl:px-40 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
-                <p class="text-blue-500 font-semibold mb-2">Hello, I'm</p>
+                <p id="hero-greeting" class="text-blue-500 font-semibold mb-2">Hello, I'm</p>
                 <h1 class="text-5xl md:text-7xl font-bold mb-4 dark:text-white">Tirth <span
                         class="text-blue-500">Madane</span></h1>
-                <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-6 font-medium">Aspiring Data
+                <h2 id="hero-subtitle" class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-6 font-medium">Aspiring Data
                     Scientist | ML Enthusiast</h2>
-                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-xl text-base md:text-lg">
+                <p id="hero-desc" class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-xl text-base md:text-lg">
                     Aspiring Data Scientist with hands-on experience in Python, SQL, and data visualization. Passionate
                     about analyzing datasets, building ML models, and translating data into actionable insights for
                     real-world problems.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#contact"
+                    <a href="#contact" id="hero-contact-btn"
                         class="bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:gap-4 transition-all">Contact
                         Me <i class="fas fa-arrow-right text-sm"></i></a>
-                    <a href="resume.pdf" download
+                    <a href="resume.pdf" download id="hero-resume-btn"
                         class="border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition">Download
                         Resume <i class="fas fa-download text-sm"></i></a>
                 </div>
@@ -251,15 +265,15 @@
         <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
-                    <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">About Me</p>
-                    <h2 class="text-4xl font-bold mb-6 dark:text-white">Passionate About <br><span
+                    <p id="about-label" class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">About Me</p>
+                    <h2 id="about-heading" class="text-4xl font-bold mb-6 dark:text-white">Passionate About <br><span
                             class="text-blue-500">Data-Driven Solutions</span></h2>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                    <p id="about-p1" class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                         I'm a B.Tech Computer Engineering student at Shah And Anchor Kutchhi Engineering College,
                         Mumbai, with a deep passion for uncovering insights from data. My journey began with curiosity
                         about how data shapes decisions in the modern world.
                     </p>
-                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p id="about-p2" class="text-slate-600 dark:text-slate-300 leading-relaxed">
                         With hands-on experience in Python, SQL, and ML fundamentals, I strive to build impactful
                         solutions that transform raw data into actionable intelligence.
                     </p>
@@ -341,9 +355,9 @@
         <div class="w-full px-8 md:px-16 lg:px-24 text-center">
 
 
-            <h2 class="text-4xl font-bold mb-4 dark:text-white">My <span class="text-blue-500">Skills</span>
+            <h2 id="skills-heading" class="text-4xl font-bold mb-4 dark:text-white">My <span class="text-blue-500">Skills</span>
             </h2>
-            <p class="text-slate-500 dark:text-slate-400 mb-12">A versatile skill set combining technical proficiency
+            <p id="skills-sub" class="text-slate-500 dark:text-slate-400 mb-12">A versatile skill set combining technical proficiency
                 with strong analytical capabilities</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -471,10 +485,10 @@
     <section id="leadership" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors">
         <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
-                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Leadership</p>
-                <h2 class="text-4xl font-bold dark:text-white">Positions of <span
+                <p id="leadership-label" class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Leadership</p>
+                <h2 id="leadership-heading" class="text-4xl font-bold dark:text-white">Positions of <span
                         class="text-blue-500">Responsibility</span></h2>
-                <p class="text-slate-500 dark:text-slate-400 mt-4">Building leadership skills through active
+                <p id="leadership-sub" class="text-slate-500 dark:text-slate-400 mt-4">Building leadership skills through active
                     participation in college organizations</p>
             </div>
 
@@ -519,8 +533,8 @@
     <section id="achievements" class="py-20 bg-white dark:bg-slate-900 transition-colors">
         <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
-                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Recognition</p>
-                <h2 class="text-4xl font-bold dark:text-white">Notable <span class="text-blue-500">Achievements</span>
+                <p id="achievements-label" class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Recognition</p>
+                <h2 id="achievements-heading" class="text-4xl font-bold dark:text-white">Notable <span class="text-blue-500">Achievements</span>
                 </h2>
             </div>
 
@@ -600,10 +614,10 @@
     <section id="experience" class="py-20 bg-white dark:bg-slate-900 transition-colors">
         <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
-                <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">MY JOURNEY</p>
-                <h2 class="text-4xl font-bold dark:text-white">Professional <span
+                <p id="experience-label" class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">MY JOURNEY</p>
+                <h2 id="experience-heading" class="text-4xl font-bold dark:text-white">Professional <span
                         class="text-blue-500">Experience</span></h2>
-                <p class="text-slate-500 dark:text-slate-400 mt-4">A comprehensive overview of internships, training,
+                <p id="experience-sub" class="text-slate-500 dark:text-slate-400 mt-4">A comprehensive overview of internships, training,
                     certifications, and professional engagements</p>
             </div>
         </div>
@@ -626,9 +640,9 @@
 
     <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-800/50 transition-colors reveal">
         <div class="w-full px-8 md:px-16 lg:px-24 text-center">
-            <p class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Portfolio</p>
-            <h2 class="text-4xl font-bold mb-4 text-blue-900 dark:text-white">My <span class="text-blue-500">Projects</span></h2>
-            <p class="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto">Data science, machine learning, and full-stack projects built to solve real-world problems.</p>
+            <p id="projects-label" class="text-blue-500 font-bold text-sm uppercase tracking-widest mb-2">Portfolio</p>
+            <h2 id="projects-heading" class="text-4xl font-bold mb-4 text-blue-900 dark:text-white">My <span class="text-blue-500">Projects</span></h2>
+            <p id="projects-sub" class="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto">Data science, machine learning, and full-stack projects built to solve real-world problems.</p>
 
             <!-- Preview Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left mb-12">
@@ -731,8 +745,8 @@
     <section id="contact" class="py-20 bg-white dark:bg-slate-900 transition-colors reveal">
         <div class="w-full px-8 md:px-16 lg:px-24">
             <div class="text-center mb-16">
-                <p class="text-blue-500 font-bold text-sm uppercase mb-2">Get in touch</p>
-                <h2 class="text-4xl font-bold dark:text-white">Let's <span class="text-blue-500">Connect</span></h2>
+                <p id="contact-label" class="text-blue-500 font-bold text-sm uppercase mb-2">Get in touch</p>
+                <h2 id="contact-heading" class="text-4xl font-bold dark:text-white">Let's <span class="text-blue-500">Connect</span></h2>
             </div>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="space-y-8">
@@ -2208,6 +2222,99 @@
             }
         });
     </script>
+
+
+<script>
+// ===== MULTI-LANGUAGE SUPPORT =====
+const translations = {
+    en: {
+        'nav-home':'Home','nav-about':'About','nav-skills':'Skills','nav-experience':'Experience','nav-projects':'Projects','nav-contact':'Contact','nav-letstalk':"Let's Talk",
+        'hero-greeting':"Hello, I'm",'hero-subtitle':'Aspiring Data Scientist | ML Enthusiast',
+        'hero-desc':'Aspiring Data Scientist with hands-on experience in Python, SQL, and data visualization. Passionate about analyzing datasets, building ML models, and translating data into actionable insights for real-world problems.',
+        'hero-contact-btn':'Contact Me <i class="fas fa-arrow-right text-sm"></i>','hero-resume-btn':'Download Resume <i class="fas fa-download text-sm"></i>',
+        'about-label':'About Me','about-heading':'Passionate About <br><span class="text-blue-500">Data-Driven Solutions</span>',
+        'about-p1':"I'm a B.Tech Computer Engineering student at Shah And Anchor Kutchhi Engineering College, Mumbai, with a deep passion for uncovering insights from data. My journey began with curiosity about how data shapes decisions in the modern world.",
+        'about-p2':'With hands-on experience in Python, SQL, and ML fundamentals, I strive to build impactful solutions that transform raw data into actionable intelligence.',
+        'skills-heading':'My <span class="text-blue-500">Skills</span>','skills-sub':'A versatile skill set combining technical proficiency with strong analytical capabilities',
+        'leadership-label':'Leadership','leadership-heading':'Positions of <span class="text-blue-500">Responsibility</span>','leadership-sub':'Building leadership skills through active participation in college organizations',
+        'achievements-label':'Recognition','achievements-heading':'Notable <span class="text-blue-500">Achievements</span>',
+        'experience-label':'MY JOURNEY','experience-heading':'Professional <span class="text-blue-500">Experience</span>','experience-sub':'A comprehensive overview of internships, training, certifications, and professional engagements',
+        'projects-label':'Portfolio','projects-heading':'My <span class="text-blue-500">Projects</span>','projects-sub':'Data science, machine learning, and full-stack projects built to solve real-world problems.',
+        'contact-label':'Get in touch','contact-heading':'Let\'s <span class="text-blue-500">Connect</span>','lang-label':'EN'
+    },
+    hi: {
+        'nav-home':'होम','nav-about':'परिचय','nav-skills':'कौशल','nav-experience':'अनुभव','nav-projects':'परियोजनाएं','nav-contact':'संपर्क','nav-letstalk':'बात करें',
+        'hero-greeting':'नमस्ते, मैं हूँ','hero-subtitle':'उभरते डेटा वैज्ञानिक | ML उत्साही',
+        'hero-desc':'Python, SQL और डेटा विज़ुअलाइज़ेशन में व्यावहारिक अनुभव के साथ एक उभरते डेटा वैज्ञानिक। डेटासेट का विश्लेषण करने, ML मॉडल बनाने और वास्तविक समस्याओं के लिए डेटा को उपयोगी जानकारी में बदलने के प्रति उत्साही।',
+        'hero-contact-btn':'संपर्क करें <i class="fas fa-arrow-right text-sm"></i>','hero-resume-btn':'रिज्यूमे डाउनलोड करें <i class="fas fa-download text-sm"></i>',
+        'about-label':'मेरे बारे में','about-heading':'डेटा-संचालित समाधानों के <br><span class="text-blue-500">प्रति जुनूनी</span>',
+        'about-p1':'मैं मुंबई के शाह एंड एंकर कुटचही इंजीनियरिंग कॉलेज में B.Tech कंप्यूटर इंजीनियरिंग का छात्र हूँ, जो डेटा से अंतर्दृष्टि निकालने के प्रति गहरे जुनून के साथ काम करता है।',
+        'about-p2':'Python, SQL और ML की बुनियाद में व्यावहारिक अनुभव के साथ, मैं कच्चे डेटा को उपयोगी जानकारी में बदलने वाले प्रभावशाली समाधान बनाने का प्रयास करता हूँ।',
+        'skills-heading':'मेरे <span class="text-blue-500">कौशल</span>','skills-sub':'तकनीकी दक्षता और मजबूत विश्लेषणात्मक क्षमताओं को मिलाने वाला एक बहुमुखी कौशल सेट',
+        'leadership-label':'नेतृत्व','leadership-heading':'जिम्मेदारी के <span class="text-blue-500">पदों पर</span>','leadership-sub':'कॉलेज संगठनों में सक्रिय भागीदारी के माध्यम से नेतृत्व कौशल विकसित करना',
+        'achievements-label':'पहचान','achievements-heading':'उल्लेखनीय <span class="text-blue-500">उपलब्धियाँ</span>',
+        'experience-label':'मेरी यात्रा','experience-heading':'व्यावसायिक <span class="text-blue-500">अनुभव</span>','experience-sub':'इंटर्नशिप, प्रशिक्षण, प्रमाणपत्र और पेशेवर जुड़ाव का व्यापक अवलोकन',
+        'projects-label':'पोर्टफोलियो','projects-heading':'मेरे <span class="text-blue-500">प्रोजेक्ट्स</span>','projects-sub':'वास्तविक दुनिया की समस्याओं को हल करने के लिए बनाए गए डेटा साइंस, ML और फुल-स्टैक प्रोजेक्ट्स।',
+        'contact-label':'संपर्क करें','contact-heading':'जुड़े <span class="text-blue-500">रहें</span>','lang-label':'हि'
+    },
+    mr: {
+        'nav-home':'होम','nav-about':'माझ्याबद्दल','nav-skills':'कौशल्ये','nav-experience':'अनुभव','nav-projects':'प्रकल्प','nav-contact':'संपर्क','nav-letstalk':'बोलूया',
+        'hero-greeting':'नमस्कार, मी आहे','hero-subtitle':'महत्त्वाकांक्षी डेटा शास्त्रज्ञ | ML उत्साही',
+        'hero-desc':'Python, SQL आणि डेटा व्हिज्युअलायझेशनमध्ये प्रत्यक्ष अनुभव असलेला महत्त्वाकांक्षी डेटा शास्त्रज्ञ. डेटासेटचे विश्लेषण करणे, ML मॉडेल्स तयार करणे आणि वास्तविक समस्यांसाठी डेटाचे उपयुक्त माहितीत रूपांतर करण्यात रस आहे.',
+        'hero-contact-btn':'संपर्क करा <i class="fas fa-arrow-right text-sm"></i>','hero-resume-btn':'रेझ्युमे डाउनलोड करा <i class="fas fa-download text-sm"></i>',
+        'about-label':'माझ्याबद्दल','about-heading':'डेटा-चालित उपायांबद्दल <br><span class="text-blue-500">उत्कट आहे</span>',
+        'about-p1':'मी मुंबईच्या शाह अँड अँकर कुटचही अभियांत्रिकी महाविद्यालयात B.Tech संगणक अभियांत्रिकीचा विद्यार्थी आहे, डेटामधून अंतर्दृष्टी शोधण्याच्या गहन आवडीसह.',
+        'about-p2':'Python, SQL आणि ML मूलभूत गोष्टींमधील प्रत्यक्ष अनुभवासह, मी कच्च्या डेटाचे उपयुक्त माहितीत रूपांतर करणारे प्रभावशाली उपाय तयार करण्याचा प्रयत्न करतो.',
+        'skills-heading':'माझी <span class="text-blue-500">कौशल्ये</span>','skills-sub':'तांत्रिक प्रवीणता आणि मजबूत विश्लेषणात्मक क्षमता एकत्र करणारा बहुमुखी कौशल्य संच',
+        'leadership-label':'नेतृत्व','leadership-heading':'जबाबदारीच्या <span class="text-blue-500">पदावर</span>','leadership-sub':'महाविद्यालयीन संस्थांमध्ये सक्रिय सहभागाद्वारे नेतृत्व कौशल्ये विकसित करणे',
+        'achievements-label':'ओळख','achievements-heading':'उल्लेखनीय <span class="text-blue-500">यश</span>',
+        'experience-label':'माझा प्रवास','experience-heading':'व्यावसायिक <span class="text-blue-500">अनुभव</span>','experience-sub':'इंटर्नशिप, प्रशिक्षण, प्रमाणपत्रे आणि व्यावसायिक सहभागाचे सर्वसमावेशक विहंगावलोकन',
+        'projects-label':'पोर्टफोलिओ','projects-heading':'माझे <span class="text-blue-500">प्रकल्प</span>','projects-sub':'वास्तविक जगातील समस्या सोडवण्यासाठी तयार केलेले डेटा सायन्स, ML आणि फुल-स्टॅक प्रकल्प.',
+        'contact-label':'संपर्कात राहा','contact-heading':'जोडूया <span class="text-blue-500">याला</span>','lang-label':'म'
+    }
+};
+
+function applyLang(lang, trackEvent) {
+    localStorage.setItem('lang', lang);
+    const t = translations[lang];
+    // Update all registered elements
+    Object.keys(t).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t[id];
+    });
+    // Update dropdown active state
+    document.querySelectorAll('#lang-dropdown button').forEach(btn => {
+        btn.classList.remove('bg-blue-50', 'dark:bg-slate-700', 'font-bold');
+    });
+    const langMap = { en: 0, hi: 1, mr: 2 };
+    const activeBtn = document.querySelectorAll('#lang-dropdown button')[langMap[lang]];
+    if (activeBtn) activeBtn.classList.add('bg-blue-50', 'font-bold');
+    // Close dropdown
+    const dd = document.getElementById('lang-dropdown');
+    if (dd) dd.classList.add('hidden');
+    // GA4 tracking — only when user explicitly switches (not on page load)
+    if (trackEvent && typeof gtag === 'function') {
+        const langNames = { en: 'English', hi: 'Hindi', mr: 'Marathi' };
+        gtag('event', 'language_selected', {
+            'event_category': 'Language',
+            'event_label': langNames[lang] || lang,
+            'language_code': lang
+        });
+    }
+}
+function toggleLangMenu() {
+    document.getElementById('lang-dropdown').classList.toggle('hidden');
+}
+function setLang(lang) { applyLang(lang, true); }
+document.addEventListener('click', function(e) {
+    const w = document.getElementById('lang-wrapper');
+    if (w && !w.contains(e.target)) document.getElementById('lang-dropdown').classList.add('hidden');
+});
+// Apply saved language after full page load (so card sections are rendered)
+window.addEventListener('load', function() {
+    applyLang(localStorage.getItem('lang') || 'en', false);
+});
+</script>
 
 </body>
 
